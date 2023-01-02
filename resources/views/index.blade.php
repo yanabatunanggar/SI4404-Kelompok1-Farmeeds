@@ -1,55 +1,6 @@
 @extends('layouts.layout')
 @section('container')
 
-<header class="site-header">
-    <div class="container">
-        <div class="row">
-            
-            <div class="col-lg-8 col-12 d-flex flex-wrap">
-                <p class="d-flex me-4 mb-0">
-                    <i class="bi-geo-alt me-2"></i>
-                    Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40257
-                </p>
-
-                <p class="d-flex mb-0">
-                    <i class="bi-envelope me-2"></i>
-
-                    <a href="mailto:info@company.com">
-                        info@company.com
-                    </a>
-                </p>
-            </div>
-
-            <div class="col-lg-3 col-12 ms-auto d-lg-block d-none">
-                <ul class="social-icon">
-                    <li class="social-icon-item">
-                        <a href="#" class="social-icon-link bi-twitter"></a>
-                    </li>
-
-                    <li class="social-icon-item">
-                        <a href="#" class="social-icon-link bi-facebook"></a>
-                    </li>
-
-                    <li class="social-icon-item">
-                        <a href="#" class="social-icon-link bi-instagram"></a>
-                    </li>
-
-                    <li class="social-icon-item">
-                        <a href="#" class="social-icon-link bi-youtube"></a>
-                    </li>
-
-                    <li class="social-icon-item">
-                        <a href="#" class="social-icon-link bi-whatsapp"></a>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</header>
-
-
-
 <main>
 
     <section class="hero-section hero-section-full-height">
@@ -60,7 +11,7 @@
                     <div id="hero-slide" class="carousel carousel-fade slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="images/slide/petani1.jpg" class="carousel-image img-fluid" alt="...">
+                                <img src="assets/images/slide/petani1.jpg" class="carousel-image img-fluid" alt="...">
                                 
                                 <div class="carousel-caption d-flex flex-column justify-content-end">
                                     <h1>Bersama <br> Petani</h1>
@@ -70,7 +21,7 @@
                             </div>
 
                             <div class="carousel-item">
-                                <img src="images/slide/petani2.jpg" class="carousel-image img-fluid" alt="...">
+                                <img src="assets/images/slide/petani2.jpg" class="carousel-image img-fluid" alt="...">
                                 
                                 <div class="carousel-caption d-flex flex-column justify-content-end">
                                     <h1>Tidak <br> Dipungut <br> Biaya</h1>
@@ -80,7 +31,7 @@
                             </div>
 
                             <div class="carousel-item">
-                                <img src="images/slide/petani3.jpeg" class="carousel-image img-fluid" alt="...">
+                                <img src="assets/images/slide/petani3.jpeg" class="carousel-image img-fluid" alt="...">
                                 
                                 <div class="carousel-caption d-flex flex-column justify-content-end">
                                     <h1>Kemanusiaan</h1>
@@ -117,8 +68,8 @@
 
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="featured-block d-flex justify-content-center align-items-center">
-                        <a href="login.html" class="d-block">
-                            <img src="images/icons/hands.png" class="featured-block-image img-fluid" alt="">
+                        <a href="{{ '/login' }}" class="d-block">
+                            <img src="assets/images/icons/hands.png" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Jadi bagian dari <strong>Kelompok Tani</strong></p>
                         </a>
@@ -127,8 +78,8 @@
 
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                     <div class="featured-block d-flex justify-content-center align-items-center">
-                        <a href="pengajuan.html" class="d-block">
-                            <img src="images/icons/heart.png" class="featured-block-image img-fluid" alt="">
+                        <a href="{{ '/ajukan-alat' }}" class="d-block">
+                            <img src="assets/images/icons/heart.png" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Gunakan Produk <strong> Berkualitas</strong></p>
                         </a>
@@ -137,8 +88,8 @@
 
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                     <div class="featured-block d-flex justify-content-center align-items-center">
-                        <a href="pengajuan.html" class="d-block">
-                            <img src="images/icons/receive.png" class="featured-block-image img-fluid" alt="">
+                        <a href="{{ '/ajukan-alat' }}" class="d-block">
+                            <img src="assets/images/icons/receive.png" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Mulai Kembangkan <strong> Komunitas </strong></p>
                         </a>
@@ -147,8 +98,8 @@
 
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="featured-block d-flex justify-content-center align-items-center">
-                        <a href="pengajuan.html" class="d-block">
-                            <img src="images/icons/scholarship.png" class="featured-block-image img-fluid" alt="">
+                        <a href="{{ '/ajukan-alat' }}" class="d-block">
+                            <img src="assets/images/icons/scholarship.png" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Dapatkan bantuan <strong> Gratis </strong></p>
                         </a>
@@ -164,7 +115,7 @@
             <div class="row">
 
                 <div class="col-lg-6 col-12 mb-5 mb-lg-0">
-                    <img src="images/petani5.jpg" class="custom-text-box-image img-fluid" alt="">
+                    <img src="assets/images/petani5.jpg" class="custom-text-box-image img-fluid" alt="">
                 </div>
 
                 <div class="col-lg-6 col-12">
@@ -230,7 +181,7 @@
             <div class="row">
 
                 <div class="col-lg-6 col-md-5 col-12">
-                    <img src="images/mentri.jpg" class="about-image ms-lg-auto bg-light shadow-lg img-fluid" alt="">
+                    <img src="assets/images/mentri.jpg" class="about-image ms-lg-auto bg-light shadow-lg img-fluid" alt="">
                 </div>
 
                 <div class="col-lg-5 col-md-7 col-12">
@@ -270,9 +221,9 @@
                 </div>
 
                 <div class="col-lg-5 col-12">
-                    <a href="pengajuan.html" class="me-4">Ajukan bibit</a>
+                    <a href="{{ '/ajukan-alat' }}" class="me-4">Ajukan bibit</a>
 
-                    <a href="login.html" class="custom-btn btn smoothscroll">Ambil bagian</a>
+                    <a href="{{ '/login' }}" class="custom-btn btn smoothscroll">Ambil bagian</a>
                 </div>
 
             </div>
@@ -290,7 +241,7 @@
 
                 <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="custom-block-wrap">
-                        <img src="images/alattani.jpg" class="custom-block-image img-fluid" alt="">
+                        <img src="assets/images/alattani.jpg" class="custom-block-image img-fluid" alt="">
 
                         <div class="custom-block">
                             <div class="custom-block-body">
@@ -315,14 +266,14 @@
                                 </div>
                             </div>
 
-                            <a href="pengajuan.html" class="custom-btn btn">Ajukan</a>
+                            <a href="{{ '/ajukan-alat' }}" class="custom-btn btn">Ajukan</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="custom-block-wrap">
-                        <img src="images/bibit.jpg" class="custom-block-image img-fluid" alt="">
+                        <img src="assets/images/bibit.jpg" class="custom-block-image img-fluid" alt="">
 
                         <div class="custom-block">
                             <div class="custom-block-body">
@@ -347,14 +298,14 @@
                                 </div>
                             </div>
 
-                            <a href="pengajuan.html" class="custom-btn btn">Ajukan</a>
+                            <a href="{{ '/ajukan-alat' }}" class="custom-btn btn">Ajukan</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="custom-block-wrap">
-                        <img src="images/kelompoktani.jpeg" class="custom-block-image img-fluid" alt="">
+                        <img src="assets/images/kelompoktani.jpeg" class="custom-block-image img-fluid" alt="">
 
                         <div class="custom-block">
                             <div class="custom-block-body">
@@ -379,7 +330,7 @@
                                 </div>
                             </div>
 
-                            <a href="login.html" class="custom-btn btn">Bergabung</a>
+                            <a href="{{ '/login' }}" class="custom-btn btn">Bergabung</a>
                         </div>
                     </div>
                 </div>
@@ -399,8 +350,8 @@
                 <div class="col-lg-7 col-12">
                     <div class="news-block">
                         <div class="news-block-top">
-                            <a href="news-detail.html">
-                                <img src="images/news/news1.jpg" class="news-image img-fluid" alt="">
+                            <a href="{{ '/news-detail' }}">
+                                <img src="assets/images/news/news1.jpg" class="news-image img-fluid" alt="">
                             </a>
 
                             <div class="news-category-block">
@@ -439,7 +390,7 @@
                             </div>
 
                             <div class="news-block-title mb-2">
-                                <h4><a href="news-detail.html" class="news-block-title-link">Disketapang Serahkan Stimulus Bantuan tahap II kepada Kelompok Tani</a></h4>
+                                <h4><a href="{{ '/news-detail' }}" class="news-block-title-link">Disketapang Serahkan Stimulus Bantuan tahap II kepada Kelompok Tani</a></h4>
                             </div>
 
                             <div class="news-block-body">
@@ -450,8 +401,8 @@
 
                     <div class="news-block mt-3">
                         <div class="news-block-top">
-                            <a href="news-detail.html">
-                                <img src="images/news/news2.webp" class="news-image img-fluid" alt="">
+                            <a href="{{ '/news-detail' }}">
+                                <img src="assets/images/news/news2.webp" class="news-image img-fluid" alt="">
                             </a>
 
                             <div class="news-category-block">
@@ -494,7 +445,7 @@
                             </div>
 
                             <div class="news-block-title mb-2">
-                                <h4><a href="news-detail.html" class="news-block-title-link">Hari Tani Nasional 24 September : Urgensi Pertanian di Indonesia</a></h4>
+                                <h4><a href="{{ '/news-detail' }}" class="news-block-title-link">Hari Tani Nasional 24 September : Urgensi Pertanian di Indonesia</a></h4>
                             </div>
 
                             <div class="news-block-body">
@@ -517,14 +468,14 @@
 
                     <div class="news-block news-block-two-col d-flex mt-4">
                         <div class="news-block-two-col-image-wrap">
-                            <a href="news-detail.html">
-                                <img src="images/news/news3.jpg" class="news-image img-fluid" alt="">
+                            <a href="{{ '/news-detail' }}">
+                                <img src="assets/images/news/news3.jpg" class="news-image img-fluid" alt="">
                             </a>
                         </div>
 
                         <div class="news-block-two-col-info">
                             <div class="news-block-title mb-2">
-                                <h6><a href="news-detail.html" class="news-block-title-link">Krisis Pangan</a></h6>
+                                <h6><a href="{{ '/news-detail' }}" class="news-block-title-link">Krisis Pangan</a></h6>
                             </div>
 
                             <div class="news-block-date">
@@ -538,14 +489,14 @@
 
                     <div class="news-block news-block-two-col d-flex mt-4">
                         <div class="news-block-two-col-image-wrap">
-                            <a href="news-detail.html">
-                                <img src="images/news/news4.jpg" class="news-image img-fluid" alt="">
+                            <a href="{{ '/news-detail' }}">
+                                <img src="assets/images/news/news4.jpg" class="news-image img-fluid" alt="">
                             </a>
                         </div>
 
                         <div class="news-block-two-col-info">
                             <div class="news-block-title mb-2">
-                                <h6><a href="news-detail.html" class="news-block-title-link">Komoditas di Indonesia</a></h6>
+                                <h6><a href="{{ '/news-detail' }}" class="news-block-title-link">Komoditas di Indonesia</a></h6>
                             </div>
 
                             <div class="news-block-date">
@@ -663,93 +614,5 @@
         </div>
     </section>
 </main>
-
-<footer class="site-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-12 mb-4">
-                <img src="images/logo.png" class="logo img-fluid" alt="">
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-12 mb-4">
-                <h5 class="site-footer-title mb-3">Quick Links</h5>
-
-                <ul class="footer-menu">
-                    <li class="footer-menu-item"><a href="index.html" class="footer-menu-link">Home</a></li>
-
-                    <li class="footer-menu-item"><a href="index.html" class="footer-menu-link">About</a></li>
-
-                    <li class="footer-menu-item"><a href="index.html" class="footer-menu-link">Testimoni</a></li>
-
-                    <li class="footer-menu-item"><a href="news.html" class="footer-menu-link">Berita</a></li>
-
-                    <li class="footer-menu-item"><a href="login.html" class="footer-menu-link">Login</a></li>
-                </ul>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-12 mx-auto">
-                <h5 class="site-footer-title mb-3">Contact Infomation</h5>
-
-                <p class="text-white d-flex mb-2">
-                    <i class="bi-telephone me-2"></i>
-
-                    <a href="tel: 120-240-9600" class="site-footer-link">
-                        (021) 29278888
-                    </a>
-                </p>
-
-                <p class="text-white d-flex">
-                    <i class="bi-envelope me-2"></i>
-
-                    <a href="mailto:info@yourgmail.com" class="site-footer-link">
-                        dinaspertanian@jabar.com
-                    </a>
-                </p>
-
-                <p class="text-white d-flex mt-3">
-                    <i class="bi-geo-alt me-2"></i>
-                    Dinas Pertanian Kota Masing-Masing
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="site-footer-bottom">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-6 col-md-7 col-12">
-                    <p class="copyright-text mb-0">Copyright © 2036 <a href="#">Farmeeds</a> Dipersembahkan oleh Dinas Pertanian.
-                    Design: <a href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-                </div>
-                
-                <div class="col-lg-6 col-md-5 col-12 d-flex justify-content-center align-items-center mx-auto">
-                    <ul class="social-icon">
-                        <li class="social-icon-item">
-                            <a href="#" class="social-icon-link bi-twitter"></a>
-                        </li>
-
-                        <li class="social-icon-item">
-                            <a href="#" class="social-icon-link bi-facebook"></a>
-                        </li>
-
-                        <li class="social-icon-item">
-                            <a href="#" class="social-icon-link bi-instagram"></a>
-                        </li>
-
-                        <li class="social-icon-item">
-                            <a href="#" class="social-icon-link bi-linkedin"></a>
-                        </li>
-
-                        <li class="social-icon-item">
-                            <a href="https://youtube.com/templatemo" class="social-icon-link bi-youtube"></a>
-                        </li>
-                    </ul>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</footer>
     
 @endsection

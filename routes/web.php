@@ -17,22 +17,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', [UserController::class, 'loginView']);
-Route::post('/login', [UserController::class, 'loginUser']);
-Route::get('/register', [UserController::class, 'registerView']);
-Route::post('/register', [UserController::class, 'registerUser']);
-Route::get('/profile/{id}', [UserController::class, 'profileViewDetail']);
+Route::get('/login', [UserController::class, 'loginView'])->name('login')->middleware('guest');
+Route::post('/loginPost', [UserController::class, 'loginUser']);
+Route::get('/register', [UserController::class, 'registerView'])->middleware('guest');
+Route::post('/registerPost', [UserController::class, 'registerUser']);
+Route::post('/logout', [UserController::class, 'logout']);
+
+Route::get('/profile/{id}', [UserController::class, 'profileViewDetail'])->middleware('auth');
 Route::post('/profile/{id}', [UserController::class, 'updateProfile']);
 
-Route::get('/ajukan-bibit', [ProductController::class, 'bibitView']);
+Route::get('/ajukan-bibit', [ProductController::class, 'bibitView'])->middleware('auth');
 Route::post('/ajukan-bibit', [ProductController::class, 'ajukanBibit']);
-Route::get('/ajukan-alat', [ProductController::class, 'alatView']);
+Route::get('/ajukan-alat', [ProductController::class, 'alatView'])->middleware('auth');
 Route::post('/ajukan-alat', [ProductController::class, 'ajukanAlat']);
 
-Route::get('/cart', [CartController::class, 'index']);
+Route::get('/cart', [CartController::class, 'index'])->middleware('auth');
 Route::get('/news', [UserController::class, 'showNews']);
 Route::get('/news-detail', [UserController::class, 'showNewsDetail']);
-Route::get('/status', [OrderController::class, 'status']);
+Route::get('/status', [OrderController::class, 'status'])->middleware('auth');
 
 Route::get('/', [UserController::class, 'userView']);
 Route::get('/admin', [UserController::class, 'adminView']);

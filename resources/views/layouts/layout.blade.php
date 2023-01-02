@@ -7,33 +7,27 @@
             <meta name="description" content="">
             <meta name="author" content="">
 
-            <title>Kind Heart Charity - Free Bootstrap 5.2.2 CSS Template</title>
+            <title>Farmeeds</title>
 
-            <!-- CSS FILES -->        
-            <link href="css/bootstrap.min.css" rel="stylesheet">
+            <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
-            <link href="css/bootstrap-icons.css" rel="stylesheet">
+            <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
 
-            <link href="css/templatemo-kind-heart-charity.css" rel="stylesheet">
-            <!--
-
-            TemplateMo 581 Kind Heart Charity
-
-                        https://templatemo.com/tm-581-kind-heart-charity
-
-            -->
+            <link href="assets/css/style.css" rel="stylesheet">
         </head>
     <body id="section_1">
         @include('layouts.navbar')
         
         @yield('container')
 
+        @include('layouts.footer')
+
         <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.sticky.js"></script>
-        <script src="js/click-scroll.js"></script>
-        <script src="js/counter.js"></script>
-        <script src="js/custom.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.sticky.js"></script>
+        <script src="assets/js/click-scroll.js"></script>
+        <script src="assets/js/counter.js"></script>
+        <script src="assets/js/custom.js"></script>
     </body>
 </html>
