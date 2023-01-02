@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('bibits', function (Blueprint $table) {
-            $table->string('gambar')->required();
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            $table->string('status');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('bibits', function (Blueprint $table) {
-            $table->dropColumn('gambar');
-        });
+        Schema::dropIfExists('orders');
     }
 };

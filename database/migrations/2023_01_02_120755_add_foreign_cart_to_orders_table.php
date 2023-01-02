@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('foto_surat')->required();
+        Schema::table('orders', function (Blueprint $table) {
+            $table->unsignedBigInteger('cart_id');
+            $table->foreign('cart_id')->references('id')->on('carts');
         });
     }
 
@@ -25,8 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('foto_surat');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropForeign('cart_id');
         });
     }
 };

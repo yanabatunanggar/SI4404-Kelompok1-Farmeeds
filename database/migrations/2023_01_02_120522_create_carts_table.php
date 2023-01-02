@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['email_verified_at', 'remember_token']);
+        Schema::create('carts', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_product');
+            $table->foreign('id_product')->references('id')->on('products');
+            $table->integer('jumlah');
         });
     }
 
@@ -25,9 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->timestamp('email_verified_at')->nullable();
-            $table->rememberToken();
-        });
+        Schema::dropIfExists('carts');
     }
 };

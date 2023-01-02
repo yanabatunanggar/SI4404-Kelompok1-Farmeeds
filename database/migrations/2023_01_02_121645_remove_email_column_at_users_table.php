@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropIndex('users_email_unique');
+        Schema::table('users', function(Blueprint $table) {
+            $table->dropColumn('email');
+            $table->string('no_hp')->required()->after('nama_lengkap');
         });
     }
 
@@ -25,8 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->unique('users_email_unique');
+        Schema::table('users', function(Blueprint $table) {
+            $table->string('email')->unique();
+            $table->dropColumn('no_hp');
         });
     }
 };

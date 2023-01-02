@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\AlatController;
-use App\Http\Controllers\BibitController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,12 +17,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Home');
-});
+Route::get('/login', [UserController::class, 'loginView']);
+Route::post('/login', [UserController::class, 'loginUser']);
+Route::get('/register', [UserController::class, 'registerView']);
+Route::post('/register', [UserController::class, 'registerUser']);
+Route::get('/profile/{id}', [UserController::class, 'profileViewDetail']);
+Route::post('/profile/{id}', [UserController::class, 'updateProfile']);
 
-Route::get('/bibit', [BibitController::class, 'index']);
+Route::get('/ajukan-bibit', [ProductController::class, 'bibitView']);
+Route::post('/ajukan-bibit', [ProductController::class, 'ajukanBibit']);
+Route::get('/ajukan-alat', [ProductController::class, 'alatView']);
+Route::post('/ajukan-alat', [ProductController::class, 'ajukanAlat']);
 
-Route::get('/alat-tani', [AlatController::class, 'index']);
+Route::get('/cart', [CartController::class, 'index']);
+Route::get('/news', [UserController::class, 'showNews']);
+Route::get('/news-detail', [UserController::class, 'showNewsDetail']);
+Route::get('/status', [OrderController::class, 'status']);
 
-Route::get('/status', [OrderController::class, 'index']);
+Route::get('/', [UserController::class, 'userView']);
+Route::get('/admin', [UserController::class, 'adminView']);

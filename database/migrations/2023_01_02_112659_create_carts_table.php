@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('email')->unique()->change();
+        Schema::create('carts', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_product');
+            $table->foreign('id_product')->references('id')->on('products');
+            $table->integer('jumlah');
         });
     }
 
@@ -25,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropUnique('users_email_unique');
-        });
+        Schema::dropIfExists('carts');
     }
 };
