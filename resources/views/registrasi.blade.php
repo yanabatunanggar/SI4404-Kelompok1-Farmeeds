@@ -79,7 +79,7 @@
                             <div class="col-lg-6 col-12 mt-3">
                                 <label class="input-group-text">Kelurahan</label>   
                                 <select class="form-select" aria-label="Default select example" name="kelurahan" id="kelurahan">
-                                    <option value="Telkom University">Telkom University</option>
+                                    <option value="Telkom University">Telkom</option>
                                 </select>
                             </div>
 

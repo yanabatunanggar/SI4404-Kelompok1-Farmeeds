@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/admin', [UserController::class, 'adminView']);
+Route::get('/tambahProduk', [ProductController::class, 'tambahProdukView']);
+Route::post('/simpanProduk', [ProductController::class, 'simpanProduk']);
+Route::delete('/hapusProduk/{id}', [ProductController::class, 'hapusProduk']);
+
+Route::get('/cekBibit', [ProductController::class, 'showBibit']);
+Route::put('/updateBibit/{id}', [ProductController::class, 'updateBibit']);
+Route::get('/cekAlat', [ProductController::class, 'showAlat']);
+Route::put('/cekAlat/{id}', [ProductController::class, 'updateAlat']);
 
 Route::get('/login', [UserController::class, 'loginView'])->name('login')->middleware('guest');
 Route::post('/loginPost', [UserController::class, 'loginUser']);
@@ -34,7 +44,7 @@ Route::post('/ajukan-alat', [ProductController::class, 'ajukanAlat']);
 Route::get('/cart', [CartController::class, 'index'])->middleware('auth');
 Route::get('/news', [UserController::class, 'showNews']);
 Route::get('/news-detail', [UserController::class, 'showNewsDetail']);
-Route::get('/status', [OrderController::class, 'status'])->middleware('auth');
+Route::get('/statusUser', [OrderController::class, 'statusUser'])->middleware('auth');
 
 Route::get('/', [UserController::class, 'userView']);
-Route::get('/admin', [UserController::class, 'adminView']);
+

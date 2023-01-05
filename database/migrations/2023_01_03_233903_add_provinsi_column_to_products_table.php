@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('carts', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_product');
-            $table->foreign('id_product')->references('id')->on('products');
-            $table->integer('jumlah');
+        Schema::table('products', function (Blueprint $table) {
+            $table->string('provinsi')->required()->after('stock');
         });
     }
 
@@ -28,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carts');
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('provinsi');
+        });
     }
 };

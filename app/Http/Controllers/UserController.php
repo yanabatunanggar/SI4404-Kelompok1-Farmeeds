@@ -16,6 +16,10 @@ class UserController extends Controller
         return view('index');
     }
 
+    public function adminView() {
+        return view('admin/home');
+    }
+
     // public function adminView() {
     //     return view('index');
     // }
@@ -36,11 +40,6 @@ class UserController extends Controller
         }
 
         return back()->with('loginError', 'Login gagal!');
-
-        // $credentials = request(['no_hp', 'password']);
-        // if (!auth()->attempt($credentials)) return redirect()->route('/login')->with('error', 'Login Gagal');
-
-        // return redirect('/ajukan-alat')->with('success', 'Login Berhasil');
     }
 
     public function registerView() {
@@ -48,8 +47,7 @@ class UserController extends Controller
     }
 
     public function registerUser(Request $request) {
-        $img = Storage::disk('public')->put('/photo', $request->file('foto_surat'));
-        
+        $img = Storage::disk('public')->put('/fotoSurat', $request->file('foto_surat'));
 
         $validatedData = $request->validate([
             'nama_lengkap' => 'required',
