@@ -59,15 +59,47 @@ class ProductController extends Controller
         return redirect()->back()->with('deleteSuccess', 'Produk berhasil dihapus');
     }
 
-    public function showBibit() {        
+    public function showBibit(Request $request) {        
+        $bibits = Product::query();
+
+        $bibits->when($request->kota, function($query) use ($request) {
+            return $query->where('kota', '==' ,$request->kota);
+        });
+
         return view('admin/bibit', [
-            'bibits' => Product::where('kategori', 'bibit')->get()
+            'bibits' => Product::where('kategori', 'bibit')->get(),
+            'provinces' => Product::select('provinsi')->distinct()->get(),
+            'cities' => Product::select('kota')->distinct()->get()
         ]);
     }
 
+    public function editBibit(Request $request) {
+        $id = $request->id;
+        return view('admin/editBibit', [
+            'product' => Product::find($id)
+        ]);
+    }
+
+    // public function filterBibit(Request $request) {
+    //     $bibits = Product::query();
+
+    //     $bibits->when($request->kota, function($query) use ($request) {
+    //         return $query->where('kota', '==' ,$request->kota);
+    //     });
+    // }
+
     public function showAlat() {
         return view('admin/alat', [
-            'alats' => Product::where('kategori', 'alat')->get()
+            'alats' => Product::where('kategori', 'alat')->get(),
+            'provinces' => Product::select('provinsi')->where('kategori', 'alat')->distinct()->get(),
+            'cities' => Product::select('kota')->where('kategori', 'alat')->distinct()->get()
+        ]);
+    }
+
+    public function editAlat(Request $request) {
+        $id = $request->id;
+        return view('admin/editAlat', [
+            'product' => Product::find($id)
         ]);
     }
 }

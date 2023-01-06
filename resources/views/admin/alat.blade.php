@@ -15,21 +15,26 @@
 
     <div class="row">
         <div class="col-3">Filter</div>
-        <div class="col-3">
-            <label class="form-label">Provinsi</label>   
-            <select class="form-select" aria-label="Default select example" name="kelurahan" id="kelurahan">
-                <option value="Telkom University">Jawa Barat</option>
-            </select>
-        </div>
-        <div class="col-3">
-            <label class="form-label">Kecamatan</label>   
-            <select class="form-select" aria-label="Default select example" name="kelurahan" id="kelurahan">
-                <option value="Telkom University">Bandung</option>
-                <option value="Telkom University">Bogor</option>
-            </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Filter</button>
+        <form action="">
+            <div class="col-3">
+                <label class="form-label">Provinsi</label>   
+                <select class="form-select" aria-label="Default select example" name="kelurahan" id="kelurahan">
+                    @foreach ($provinces as $province)
+                        <option value="Telkom University">{{ $province->provinsi }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-3">
+                <label class="form-label">Kecamatan</label>   
+                <select class="form-select" aria-label="Default select example" name="kelurahan" id="kelurahan">
+                    @foreach ($cities as $city)
+                        <option value="Telkom University">{{ $city->kota }}</option>
+                    @endforeach
+                </select>
+            </div>
+        
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
     </div>
 
     <div class="row mt-5">
@@ -43,7 +48,7 @@
                     <p class="card-text">Stock: {{ $alat->stock }}</p>
                     <p class="card-text">Provinsi: {{ $alat->provinsi }}</p>
                     <p class="card-text">Kota: {{ $alat->kota }}</p>
-                    <a href="#" class="btn btn-primary">Detail</a>
+                    <a href="{{ url('/editAlat/'.$alat->id) }}" class="btn btn-primary">Edit</a>
                     <form action="{{ url('/hapusProduk/'.$alat->id) }}" method="post">
                         @csrf
                         @method('DELETE')

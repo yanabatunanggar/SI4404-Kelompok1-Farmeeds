@@ -12,23 +12,30 @@
 @endif
 
 <div class="container row">
-    
     <div class="col-3">Filter</div>
-    <div class="col-3">
-        <label class="form-label">Provinsi</label>   
-        <select class="form-select" aria-label="Default select example" name="kelurahan" id="kelurahan">
-            <option value="Telkom University">Jawa Barat</option>
-        </select>
-    </div>
-    <div class="col-3">
-        <label class="form-label">Kecamatan</label>   
-        <select class="form-select" aria-label="Default select example" name="kelurahan" id="kelurahan">
-            <option value="Telkom University">Bandung</option>
-            <option value="Telkom University">Bogor</option>
-        </select>
-    </div>
 
-    <button type="submit" class="btn btn-primary">Filter</button>
+    <form action="/filterBibit", method="get">
+        @csrf
+        <div class="col-3">
+            <label class="form-label">Provinsi</label>   
+            <select class="form-select" aria-label="Default select example" name="provinsi" id="provinsi">
+                @foreach ($provinces as $province)
+                    <option value="{{ $province->provinsi }}">{{ $province->provinsi }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-3">
+            <label class="form-label">Kecamatan</label>   
+            <select class="form-select" aria-label="Default select example" name="kota" id="kota">
+                @foreach ($cities as $city)
+                    <option value="{{ $city->kota }}">{{ $city->kota }}</option>
+                @endforeach
+            </select>
+        </div>
+    
+        <button type="submit" class="btn btn-primary" name="filter">Filter</button>
+    </form>
+
 </div>
     
 <div class="container mt-5">
@@ -43,7 +50,7 @@
                     <p class="card-text">Stock: {{ $bibit->stock }}</p>
                     <p class="card-text">Provinsi: {{ $bibit->provinsi }}</p>
                     <p class="card-text">Kota: {{ $bibit->kota }}</p>
-                    <a href="" class="btn btn-primary">Detail</a>
+                    <a href="{{ url('/editBibit/'.$bibit->id) }}" class="btn btn-primary">Edit</a>
                     <form action="{{ url('/hapusProduk/'.$bibit->id) }}" method="post">
                         @csrf
                         @method('DELETE')
