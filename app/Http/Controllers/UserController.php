@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Complain;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -86,6 +87,19 @@ class UserController extends Controller
         return view('news-detail');
     }
 
+    public function addKeluhan(Request $request) {
+        $validatedData = $request->validate([
+            'nama_lengkap' => 'required',
+            'no_hp' => 'required',
+            'provinsi' => 'required',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
+            'keluhan' => 'required',
+        ]);
 
+        Complain::create($validatedData);
+
+        return redirect()->back()->with('complainSuccess', 'Pesan Anda Berhasil Ditambahkan');
+    }
 
 }

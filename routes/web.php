@@ -42,6 +42,8 @@ Route::get('/register', [UserController::class, 'registerView'])->middleware('gu
 Route::post('/registerPost', [UserController::class, 'registerUser']);
 Route::post('/logout', [UserController::class, 'logout']);
 
+Route::post('/tambahKeluhan', [UserController::class, 'addKeluhan'])->middleware('guest');
+
 Route::get('/profile/{id}', [UserController::class, 'profileViewDetail'])->middleware('auth');
 Route::post('/profile/{id}', [UserController::class, 'updateProfile']);
 

@@ -584,29 +584,72 @@
     <section class="contact-section section-padding" id="section_6">
         <div class="container">
             <div class="row">
+                @if (session()->has('complainSuccess'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('complainSuccess') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
 
                 <div class="col-lg-10 mx-auto">
-                    <form class="custom-form contact-form" action="#" method="post" role="form">
+
+                    <form class="custom-form contact-form" action="/tambahKeluhan" method="post">
+                        @csrf
                         <h2>Customer Service</h2>
 
                         <p class="mb-4">Apabila ada yang ditanyakan, Anda juga dapat menghubungi 
                             <a href="#">(021) 29278888</a>
                         </p>
+
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">
-                                <input type="text" name="first-name" id="first-name" class="form-control" placeholder="Nama Anda" required>
+                                <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" placeholder="Nama Anda" required>
                             </div>
 
                             <div class="col-lg-6 col-md-6 col-12">
-                                <input type="text" name="last-name" id="last-name" class="form-control" placeholder="Nama Kelompok Tani" required>
+                                <input type="text" name="nama_kelompok" id="nama_kelompok" class="form-control" placeholder="Nama Kelompok Petani" required>
                             </div>
                         </div>
 
-                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email/No HP" required>
+                        <div class="col-lg-12 col-md-6 col-12">
+                            <input type="text" name="no_hp" id="no_hp" class="form-control" placeholder="Nomor HP" required>
+                        </div>
 
-                        <textarea name="message" rows="5" class="form-control" id="message" placeholder="Apa yang dapat kami bantu?"></textarea>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label class="input-group-text">Provinsi</label>   
+                                <select class="form-select" aria-label="Default select example" name="provinsi" id="provinsi">
+                                    <option value="Jawa Barat">Jawa Barat</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label class="input-group-text">Kota</label>   
+                                <select class="form-select" aria-label="Default select example" name="kota" id="kota">
+                                    <option value="Jawa Barat">Bandung</option>
+                                </select>
+                            </div>
+                        </div>
 
-                        <button type="submit" class="form-control">Kirim</button>
+                        <div class="row mt-3">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label class="input-group-text">Kecamatan</label>   
+                                <select class="form-select" aria-label="Default select example" name="kecamatan" id="kecamatan">
+                                    <option value="Bojongsoang">Bojongsoang</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label class="input-group-text">Kelurahan</label>   
+                                <select class="form-select" aria-label="Default select example" name="kelurahan" id="kelurahan">
+                                    <option value="Telkom">Telkom</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <textarea name="keluhan" rows="5" class="form-control mt-3" id="keluhan" placeholder="Apa yang dapat kami bantu?"></textarea>
+
+                        <button type="submit" class="form-control" name="kirim">Kirim</button>
                     </form>
                 </div>
 
@@ -616,3 +659,5 @@
 </main>
     
 @endsection
+
+{{-- bi-cloud-arrow-up mas-auto --}}
