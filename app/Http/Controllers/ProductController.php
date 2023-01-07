@@ -23,19 +23,7 @@ class ProductController extends Controller
     public function simpanProduk(Request $request) {
         $data = $request->all();
         $img = Storage::disk('public')->put('/fotoProduk', $request->file('gambar'));
-        
-        // $validatedData = $request->validate([
-        //     'nama_produk' => 'required',
-        //     'kategori' => 'required',
-        //     'stock' => 'required',
-        //     'provinsi' => 'required',
-        //     'kota' => 'required',
-        //     'deskripsi' => 'required',
-        // ]);
 
-        // $validatedData['gambar'] = $img;
-        
-        // dd($validatedData);
         Product::create([
             'nama_produk' => $data['nama_produk'],
             'kategori' => $data['kategori'],
@@ -46,7 +34,7 @@ class ProductController extends Controller
             'gambar' => $img
         ]);
 
-        return redirect('/tambahProduk')->with('addSuccess', 'Produk berhasil ditambahkan!');
+        return redirect('/admin/tambahProduk')->with('addSuccess', 'Produk berhasil ditambahkan!');
     }
 
     public function hapusProduk(Request $request) {
@@ -99,7 +87,7 @@ class ProductController extends Controller
     public function editAlat(Request $request) {
         $id = $request->id;
         return view('admin/editAlat', [
-            'product' => Product::find($id)
+            'product' => Product::find($request->id)
         ]);
     }
 }

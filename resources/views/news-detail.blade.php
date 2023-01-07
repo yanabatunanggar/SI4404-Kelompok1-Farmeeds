@@ -24,7 +24,7 @@
                 <div class="col-lg-7 col-12">
                     <div class="news-block">
                         <div class="news-block-top">
-                            <img src="assets/images/news/medium-shot-volunteers-with-clothing-donations.jpg" class="news-image img-fluid" alt="">
+                            <img src="{{asset('assets/images/news/medium-shot-volunteers-with-clothing-donations.jpg')}}" class="news-image img-fluid" alt="">
 
                             <div class="news-category-block">
                                 <a href="#" class="category-block-link">
@@ -75,11 +75,11 @@
 
                             <div class="row mt-5 mb-4">
                                 <div class="col-lg-6 col-12 mb-4 mb-lg-0">
-                                    <img src="assets/images/news/africa-humanitarian-aid-doctor.jpg" class="news-detail-image img-fluid" alt="">
+                                    <img src="{{asset('assets/images/news/africa-humanitarian-aid-doctor.jpg')}}" class="news-detail-image img-fluid" alt="">
                                 </div>
 
                                 <div class="col-lg-6 col-12">
-                                    <img src="assets/images/news/close-up-happy-people-working-together.jpg" class="news-detail-image img-fluid" alt="">
+                                    <img src="{{asset('assets/images/news/close-up-happy-people-working-together.jpg')}}" class="news-detail-image img-fluid" alt="">
                                 </div>
                             </div>
 
@@ -112,7 +112,7 @@
                             </div>
 
                             <div class="author-comment d-flex mt-3 mb-4">
-                                <img src="assets/images/avatar/studio-portrait-emotional-happy-funny.jpg" class="img-fluid avatar-image" alt="">
+                                <img src="{{asset('assets/images/avatar/studio-portrait-emotional-happy-funny.jpg')}}" class="img-fluid avatar-image" alt="">
 
                                 <div class="author-comment-info ms-3">
                                     <h6 class="mb-1">Jack</h6>
@@ -128,7 +128,7 @@
                             </div>
 
                             <div class="author-comment d-flex ms-5 ps-3">
-                                <img src="assets/images/avatar/pretty-blonde-woman-wearing-white-t-shirt.jpg" class="img-fluid avatar-image" alt="">
+                                <img src="{{asset('assets/images/avatar/pretty-blonde-woman-wearing-white-t-shirt.jpg')}}" class="img-fluid avatar-image" alt="">
 
                                 <div class="author-comment-info ms-3">
                                     <h6 class="mb-1">Daisy</h6>
@@ -144,7 +144,7 @@
                             </div>
 
                             <div class="author-comment d-flex mt-3 mb-4">
-                                <img src="assets/images/avatar/portrait-young-redhead-bearded-male.jpg" class="img-fluid avatar-image" alt="">
+                                <img src="{{asset('assets/images/avatar/portrait-young-redhead-bearded-male.jpg')}}" class="img-fluid avatar-image" alt="">
 
                                 <div class="author-comment-info ms-3">
                                     <h6 class="mb-1">Wilson</h6>
@@ -186,7 +186,7 @@
                     <div class="news-block news-block-two-col d-flex mt-4">
                         <div class="news-block-two-col-image-wrap">
                             <a href="news-detail.html">
-                                <img src="assets/images/news/africa-humanitarian-aid-doctor.jpg" class="news-image img-fluid" alt="">
+                                <img src="{{asset('assets/images/news/africa-humanitarian-aid-doctor.jpg')}}" class="news-image img-fluid" alt="">
                             </a>
                         </div>
 
@@ -207,7 +207,7 @@
                     <div class="news-block news-block-two-col d-flex mt-4">
                         <div class="news-block-two-col-image-wrap">
                             <a href="news-detail.html">
-                                <img src="assets/images/news/close-up-happy-people-working-together.jpg" class="news-image img-fluid" alt="">
+                                <img src="{{asset('assets/images/news/close-up-happy-people-working-together.jpg')}}" class="news-image img-fluid" alt="">
                             </a>
                         </div>
 
@@ -313,7 +313,7 @@
                     <div class="news-block">
                         <div class="news-block-top">
                             <a href="news-detail.html">
-                                <img src="assets/images/news/medium-shot-volunteers-with-clothing-donations.jpg" class="news-image img-fluid" alt="">
+                                <img src="{{asset('assets/images/news/medium-shot-volunteers-with-clothing-donations.jpg')}}" class="news-image img-fluid" alt="">
                             </a>
 
                             <div class="news-category-block">
@@ -366,7 +366,7 @@
                     <div class="news-block">
                         <div class="news-block-top">
                             <a href="news-detail.html">
-                                <img src="assets/images/news/medium-shot-people-collecting-foodstuff.jpg" class="news-image img-fluid" alt="">
+                                <img src="{{asset('assets/images/news/medium-shot-people-collecting-foodstuff.jpg')}}" class="news-image img-fluid" alt="">
                             </a>
 
                             <div class="news-category-block">

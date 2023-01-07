@@ -2,7 +2,7 @@
 
 @section('container')
 
-<h1>Ini adalah halaman bibit: {{ $product->nama_produk }}</h1>
+<h1>Ini adalah halaman alat: {{ $product->nama_produk }}</h1>
 
 @if (session()->has('deleteSuccess'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">

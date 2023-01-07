@@ -19,15 +19,15 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ '/tambahProduk' }}">Tambah Bibit</a>
+                    <a class="nav-link" href="{{ '/admin/tambahProduk' }}">Tambah Bibit</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ '/cekBibit' }}">Bibit</a>
+                    <a class="nav-link" href="{{ '/admin/cekBibit' }}">Bibit</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ '/cekAlat' }}">Alat</a>
+                    <a class="nav-link" href="{{ '/admin/cekAlat' }}">Alat</a>
                 </li>
 
                 {{-- @auth

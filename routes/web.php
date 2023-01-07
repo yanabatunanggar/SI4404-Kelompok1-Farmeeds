@@ -17,19 +17,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/admin', [UserController::class, 'adminView']);
-Route::get('/tambahProduk', [ProductController::class, 'tambahProdukView']);
-Route::post('/simpanProduk', [ProductController::class, 'simpanProduk']);
-Route::delete('/hapusProduk/{id}', [ProductController::class, 'hapusProduk']);
+Route::prefix('admin')->group(function () {
+    Route::get('/', [UserController::class, 'adminView']);
+    Route::get('/tambahProduk', [ProductController::class, 'tambahProdukView']);
+    Route::post('/simpanProduk', [ProductController::class, 'simpanProduk']);
+    Route::delete('/hapusProduk/{id}', [ProductController::class, 'hapusProduk']);
+    Route::get('/cekBibit', [ProductController::class, 'showBibit']);
+    Route::get('/filterBibit', [ProductController::class, 'filterBibit']);
 
-Route::get('/cekBibit', [ProductController::class, 'showBibit']);
-Route::get('/filterBibit', [ProductController::class, 'filterBibit']);
-Route::get('/editBibit/{id}', [ProductController::class, 'editBibit']);
-Route::put('/updateBibit/{id}', [ProductController::class, 'updateBibit']);
-Route::get('/editAlat/{id}', [ProductController::class, 'editAlat']);
-Route::put('/updateAlat/{id}', [ProductController::class, 'updateAlat']);
-Route::get('/cekAlat', [ProductController::class, 'showAlat']);
-Route::put('/cekAlat/{id}', [ProductController::class, 'updateAlat']);
+    Route::get('/editBibit/{id}', [ProductController::class, 'editBibit']);
+    Route::put('/updateBibit/{id}', [ProductController::class, 'updateBibit']);
+    
+    Route::get('/editAlat/{id}', [ProductController::class, 'editAlat']);
+    Route::put('/updateAlat/{id}', [ProductController::class, 'updateAlat']);
+    
+    Route::get('/cekAlat', [ProductController::class, 'showAlat']);
+    Route::put('/cekAlat/{id}', [ProductController::class, 'updateAlat']);
+});
+
 
 Route::get('/login', [UserController::class, 'loginView'])->name('login')->middleware('guest');
 Route::post('/loginPost', [UserController::class, 'loginUser']);

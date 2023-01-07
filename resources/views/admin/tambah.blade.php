@@ -12,7 +12,7 @@
 @endif
 
 <div class="container">
-    <form action="/simpanProduk" method="post" enctype="multipart/form-data">
+    <form action="/admin/simpanProduk" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
           <label for="nama_produk" class="form-label">Nama Produk</label>

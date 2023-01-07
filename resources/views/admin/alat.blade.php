@@ -48,8 +48,8 @@
                     <p class="card-text">Stock: {{ $alat->stock }}</p>
                     <p class="card-text">Provinsi: {{ $alat->provinsi }}</p>
                     <p class="card-text">Kota: {{ $alat->kota }}</p>
-                    <a href="{{ url('/editAlat/'.$alat->id) }}" class="btn btn-primary">Edit</a>
-                    <form action="{{ url('/hapusProduk/'.$alat->id) }}" method="post">
+                    <a href="{{ url('/admin/editAlat/'.$alat->id) }}" class="btn btn-primary">Edit</a>
+                    <form action="{{ url('/admin/hapusProduk/'.$alat->id) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Hapus</button>

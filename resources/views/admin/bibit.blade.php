@@ -14,7 +14,7 @@
 <div class="container row">
     <div class="col-3">Filter</div>
 
-    <form action="/filterBibit", method="get">
+    <form action="/admin/filterBibit", method="get">
         @csrf
         <div class="col-3">
             <label class="form-label">Provinsi</label>   
@@ -50,8 +50,8 @@
                     <p class="card-text">Stock: {{ $bibit->stock }}</p>
                     <p class="card-text">Provinsi: {{ $bibit->provinsi }}</p>
                     <p class="card-text">Kota: {{ $bibit->kota }}</p>
-                    <a href="{{ url('/editBibit/'.$bibit->id) }}" class="btn btn-primary">Edit</a>
-                    <form action="{{ url('/hapusProduk/'.$bibit->id) }}" method="post">
+                    <a href="{{ url('/admin/editBibit/'.$bibit->id) }}" class="btn btn-primary">Edit</a>
+                    <form action="{{ url('/admin/hapusProduk/'.$bibit->id) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Hapus</button>

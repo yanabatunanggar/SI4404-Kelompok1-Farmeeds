@@ -11,7 +11,7 @@
                     <div id="hero-slide" class="carousel carousel-fade slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="assets/images/slide/petani1.jpg" class="carousel-image img-fluid" alt="...">
+                                <img src="{{asset('assets/images/slide/petani1.jpg')}}" class="carousel-image img-fluid" alt="...">
                                 
                                 <div class="carousel-caption d-flex flex-column justify-content-end">
                                     <h1>Bersama <br> Petani</h1>
@@ -21,7 +21,7 @@
                             </div>
 
                             <div class="carousel-item">
-                                <img src="assets/images/slide/petani2.jpg" class="carousel-image img-fluid" alt="...">
+                                <img src="{{asset('assets/images/slide/petani2.jpg')}}" class="carousel-image img-fluid" alt="...">
                                 
                                 <div class="carousel-caption d-flex flex-column justify-content-end">
                                     <h1>Tidak <br> Dipungut <br> Biaya</h1>
@@ -31,7 +31,7 @@
                             </div>
 
                             <div class="carousel-item">
-                                <img src="assets/images/slide/petani3.jpeg" class="carousel-image img-fluid" alt="...">
+                                <img src="{{asset('assets/images/slide/petani3.jpeg')}}" class="carousel-image img-fluid" alt="...">
                                 
                                 <div class="carousel-caption d-flex flex-column justify-content-end">
                                     <h1>Kemanusiaan</h1>
@@ -69,7 +69,7 @@
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="featured-block d-flex justify-content-center align-items-center">
                         <a href="{{ '/login' }}" class="d-block">
-                            <img src="assets/images/icons/hands.png" class="featured-block-image img-fluid" alt="">
+                            <img src="{{asset('assets/images/icons/hands.png')}}" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Jadi bagian dari <strong>Kelompok Tani</strong></p>
                         </a>
@@ -79,7 +79,7 @@
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                     <div class="featured-block d-flex justify-content-center align-items-center">
                         <a href="{{ '/ajukan-alat' }}" class="d-block">
-                            <img src="assets/images/icons/heart.png" class="featured-block-image img-fluid" alt="">
+                            <img src="{{asset('assets/images/icons/heart.png')}}" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Gunakan Produk <strong> Berkualitas</strong></p>
                         </a>
@@ -89,7 +89,7 @@
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                     <div class="featured-block d-flex justify-content-center align-items-center">
                         <a href="{{ '/ajukan-alat' }}" class="d-block">
-                            <img src="assets/images/icons/receive.png" class="featured-block-image img-fluid" alt="">
+                            <img src="{{asset('assets/images/icons/receive.png')}}" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Mulai Kembangkan <strong> Komunitas </strong></p>
                         </a>
@@ -99,7 +99,7 @@
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="featured-block d-flex justify-content-center align-items-center">
                         <a href="{{ '/ajukan-alat' }}" class="d-block">
-                            <img src="assets/images/icons/scholarship.png" class="featured-block-image img-fluid" alt="">
+                            <img src="{{asset('assets/images/icons/scholarship.png')}}" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Dapatkan bantuan <strong> Gratis </strong></p>
                         </a>
@@ -115,7 +115,7 @@
             <div class="row">
 
                 <div class="col-lg-6 col-12 mb-5 mb-lg-0">
-                    <img src="assets/images/petani5.jpg" class="custom-text-box-image img-fluid" alt="">
+                    <img src="{{asset('assets/images/petani5.jpg')}}" class="custom-text-box-image img-fluid" alt="">
                 </div>
 
                 <div class="col-lg-6 col-12">
@@ -181,7 +181,7 @@
             <div class="row">
 
                 <div class="col-lg-6 col-md-5 col-12">
-                    <img src="assets/images/mentri.jpg" class="about-image ms-lg-auto bg-light shadow-lg img-fluid" alt="">
+                    <img src="{{asset('assets/images/mentri.jpg')}}" class="about-image ms-lg-auto bg-light shadow-lg img-fluid" alt="">
                 </div>
 
                 <div class="col-lg-5 col-md-7 col-12">
@@ -241,7 +241,7 @@
 
                 <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="custom-block-wrap">
-                        <img src="assets/images/alattani.jpg" class="custom-block-image img-fluid" alt="">
+                        <img src="{{asset('assets/images/alattani.jpg')}}" class="custom-block-image img-fluid" alt="">
 
                         <div class="custom-block">
                             <div class="custom-block-body">
@@ -273,7 +273,7 @@
 
                 <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="custom-block-wrap">
-                        <img src="assets/images/bibit.jpg" class="custom-block-image img-fluid" alt="">
+                        <img src="{{asset('assets/images/bibit.jpg')}}" class="custom-block-image img-fluid" alt="">
 
                         <div class="custom-block">
                             <div class="custom-block-body">
@@ -305,7 +305,7 @@
 
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="custom-block-wrap">
-                        <img src="assets/images/kelompoktani.jpeg" class="custom-block-image img-fluid" alt="">
+                        <img src="{{asset('assets/images/kelompoktani.jpeg')}}" class="custom-block-image img-fluid" alt="">
 
                         <div class="custom-block">
                             <div class="custom-block-body">
@@ -351,7 +351,7 @@
                     <div class="news-block">
                         <div class="news-block-top">
                             <a href="{{ '/news-detail' }}">
-                                <img src="assets/images/news/news1.jpg" class="news-image img-fluid" alt="">
+                                <img src="{{asset('assets/images/news/news1.jpg')}}" class="news-image img-fluid" alt="">
                             </a>
 
                             <div class="news-category-block">
@@ -402,7 +402,7 @@
                     <div class="news-block mt-3">
                         <div class="news-block-top">
                             <a href="{{ '/news-detail' }}">
-                                <img src="assets/images/news/news2.webp" class="news-image img-fluid" alt="">
+                                <img src="{{asset('assets/images/news/news2.webp')}}" class="news-image img-fluid" alt="">
                             </a>
 
                             <div class="news-category-block">
@@ -469,7 +469,7 @@
                     <div class="news-block news-block-two-col d-flex mt-4">
                         <div class="news-block-two-col-image-wrap">
                             <a href="{{ '/news-detail' }}">
-                                <img src="assets/images/news/news3.jpg" class="news-image img-fluid" alt="">
+                                <img src="{{asset('assets/images/news/news3.jpg')}}" class="news-image img-fluid" alt="">
                             </a>
                         </div>
 
@@ -490,7 +490,7 @@
                     <div class="news-block news-block-two-col d-flex mt-4">
                         <div class="news-block-two-col-image-wrap">
                             <a href="{{ '/news-detail' }}">
-                                <img src="assets/images/news/news4.jpg" class="news-image img-fluid" alt="">
+                                <img src="{{asset('assets/images/news/news4.jpg')}}" class="news-image img-fluid" alt="">
                             </a>
                         </div>
 
