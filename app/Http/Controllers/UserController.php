@@ -54,6 +54,7 @@ class UserController extends Controller
             'nama_lengkap' => 'required',
             'nama_kelompok' => 'required',
             'no_hp' => 'required|min:11|max:13|unique:users',
+            'provinsi' => 'required',
             'alamat' => 'required',
             'kota' => 'required',
             'kecamatan' => 'required',

@@ -22,6 +22,7 @@ class User extends Authenticatable
         'nama_kelompok',
         'no_hp',
         'alamat',
+        'provinsi',
         'kota',
         'kecamatan',
         'kelurahan',
