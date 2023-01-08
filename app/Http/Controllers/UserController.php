@@ -118,4 +118,40 @@ class UserController extends Controller
         return redirect()->back()->with('complainSuccess', 'Pesan Anda Berhasil Ditambahkan');
     }
 
+    public function profileViewDetail(Request $request) {
+        $id = $request->id;
+        
+        return view('profile', [
+            'users' => User::where('id', $id)->with(['provinces', 'regencies', 'districts', 'villages'])->get()
+        ]);
+    }
+
+    public function editProfile(Request $request) {
+        $id = $request->id;
+        
+        return view('profileEdit', [
+            'users' => User::where('id', $id)->with(['provinces', 'regencies', 'districts', 'villages'])->get()
+        ]);
+    }
+
+    public function updateProfile(Request $request) {
+        $id = $request->id;
+        $data = $request->all();
+
+        $user = User::find($id);
+
+        if (( $request->hasFile('foto_surat') )) {
+            $img = Storage::disk('public')->put('/fotoSurat', $request->file('foto_surat'));
+            $user->foto_surat = $img;
+        }
+
+        $user->nama_lengkap = $data['nama_lengkap'];
+        $user->nama_kelompok = $data['nama_kelompok'];
+        $user->no_hp = $data['no_hp'];
+        $user->alamat = $data['alamat'];
+
+        $user->save();
+
+        return redirect()->to('/profile/'.$id)->with('editSuccess', 'Profil Berhasil Diubah');
+    }
 }

@@ -9,8 +9,9 @@
 
 namespace App\Models;
 
-use AzisHapidin\IndoRegion\Traits\ProvinceTrait;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use AzisHapidin\IndoRegion\Traits\ProvinceTrait;
 
 /**
  * Province Model.

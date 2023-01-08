@@ -46,7 +46,7 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Halo, {{ auth()->user()->nama_lengkap }}</a>
 
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ '/profile/'.auth()->user()->id }}">Profile</a></li>
                             <li>
                                 <form action="/logout" method="post">
                                     @csrf

@@ -51,7 +51,8 @@ Route::post('/logout', [UserController::class, 'logout']);
 Route::post('/tambahKeluhan', [UserController::class, 'addKeluhan'])->middleware('guest');
 
 Route::get('/profile/{id}', [UserController::class, 'profileViewDetail'])->middleware('auth');
-Route::post('/profile/{id}', [UserController::class, 'updateProfile']);
+Route::get('/editProfile/{id}', [UserController::class, 'editProfile'])->middleware('auth');
+Route::post('/updateProfile/{id}', [UserController::class, 'updateProfile']);
 
 Route::get('/ajukan-bibit', [ProductController::class, 'bibitView'])->middleware('auth');
 Route::post('/ajukan-bibit', [ProductController::class, 'ajukanBibit']);
