@@ -11,10 +11,18 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 
+
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\District;
+use App\Models\Village;
+
 class UserController extends Controller
 {
     public function userView() {
-        return view('index');
+        $provinces = Province::all();
+
+        return view('index', compact('provinces'));
     }
 
     public function adminView() {
@@ -44,7 +52,13 @@ class UserController extends Controller
     }
 
     public function registerView() {
-        return view('registrasi');
+        // Get semua data
+        $provinces = Province::all();
+        // $regencies = Regency::all();
+        // $districts = District::all();
+        // $villages = Village::all();
+
+        return view('registrasi', compact('provinces'));
     }
 
     public function registerUser(Request $request) {
@@ -93,6 +107,7 @@ class UserController extends Controller
             'nama_lengkap' => 'required',
             'no_hp' => 'required',
             'provinsi' => 'required',
+            'kota' => 'required',
             'kecamatan' => 'required',
             'kelurahan' => 'required',
             'keluhan' => 'required',

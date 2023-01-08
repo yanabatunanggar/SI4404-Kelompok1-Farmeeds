@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RegionController;
 use App\Http\Controllers\UserController;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
@@ -35,11 +36,16 @@ Route::prefix('admin')->group(function () {
     Route::put('/cekAlat/{id}', [ProductController::class, 'updateAlat']);
 });
 
-
 Route::get('/login', [UserController::class, 'loginView'])->name('login')->middleware('guest');
 Route::post('/loginPost', [UserController::class, 'loginUser']);
+
 Route::get('/register', [UserController::class, 'registerView'])->middleware('guest');
 Route::post('/registerPost', [UserController::class, 'registerUser']);
+
+Route::post('/getkota', [RegionController::class, 'getkota'])->name('getkota');
+Route::post('/getkecamatan', [RegionController::class, 'getkecamatan'])->name('getkecamatan');
+Route::post('/getkelurahan', [RegionController::class, 'getkelurahan'])->name('getkelurahan');
+
 Route::post('/logout', [UserController::class, 'logout']);
 
 Route::post('/tambahKeluhan', [UserController::class, 'addKeluhan'])->middleware('guest');

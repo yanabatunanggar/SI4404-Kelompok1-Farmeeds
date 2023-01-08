@@ -2,6 +2,12 @@
 @section('container')
 
 <main>
+    @if (session()->has('complainSuccess'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('complainSuccess') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+    @endif
 
     <section class="hero-section hero-section-full-height">
         <div class="container-fluid">
@@ -584,13 +590,6 @@
     <section class="contact-section section-padding" id="section_6">
         <div class="container">
             <div class="row">
-                @if (session()->has('complainSuccess'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ session('complainSuccess') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endif
-
                 <div class="col-lg-10 mx-auto">
 
                     <form class="custom-form contact-form" action="/tambahKeluhan" method="post">
@@ -619,14 +618,17 @@
                             <div class="col-lg-6 col-md-6 col-12">
                                 <label class="input-group-text">Provinsi</label>   
                                 <select class="form-select" aria-label="Default select example" name="provinsi" id="provinsi">
-                                    <option value="Jawa Barat">Jawa Barat</option>
+                                    <option>Pilih Provinsi...</option>
+                                    @foreach ($provinces as $provinsi)
+                                        <option value="{{ $provinsi->id }}">{{ $provinsi->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             
                             <div class="col-lg-6 col-md-6 col-12">
                                 <label class="input-group-text">Kota</label>   
                                 <select class="form-select" aria-label="Default select example" name="kota" id="kota">
-                                    <option value="Jawa Barat">Bandung</option>
+                                    
                                 </select>
                             </div>
                         </div>
@@ -635,14 +637,14 @@
                             <div class="col-lg-6 col-md-6 col-12">
                                 <label class="input-group-text">Kecamatan</label>   
                                 <select class="form-select" aria-label="Default select example" name="kecamatan" id="kecamatan">
-                                    <option value="Bojongsoang">Bojongsoang</option>
+                                    
                                 </select>
                             </div>
                             
                             <div class="col-lg-6 col-md-6 col-12">
                                 <label class="input-group-text">Kelurahan</label>   
                                 <select class="form-select" aria-label="Default select example" name="kelurahan" id="kelurahan">
-                                    <option value="Telkom">Telkom</option>
+                                    
                                 </select>
                             </div>
                         </div>
@@ -657,6 +659,72 @@
         </div>
     </section>
 </main>
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+<script>
+    $(function() {
+        $.ajaxSetup({
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+        })
+
+        $(function() {
+            $('#provinsi').on('change', function(){
+                let id_provinsi = $('#provinsi').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{{route('getkota')}}",
+                    data: {id_provinsi:id_provinsi},
+                    cache: false,
+
+                    success: function(msg) {
+                        $('#kota').html(msg);
+                    },
+                    error: function(data){
+                        console.log('error: ', data);
+                    },
+                })
+            })
+
+            $('#kota').on('change', function(){
+                let id_kota = $('#kota').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{{route('getkecamatan')}}",
+                    data: {id_kota:id_kota},
+                    cache: false,
+
+                    success: function(msg) {
+                        $('#kecamatan').html(msg);
+                    },
+                    error: function(data){
+                        console.log('error: ', data);
+                    },
+                })
+            })
+
+            $('#kecamatan').on('change', function(){
+                let id_kecamatan = $('#kecamatan').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{{route('getkelurahan')}}",
+                    data: {id_kecamatan:id_kecamatan},
+                    cache: false,
+
+                    success: function(msg) {
+                        $('#kelurahan').html(msg);
+                    },
+                    error: function(data){
+                        console.log('error: ', data);
+                    },
+                })
+            })
+        })
+    })
+</script>
     
 @endsection
 

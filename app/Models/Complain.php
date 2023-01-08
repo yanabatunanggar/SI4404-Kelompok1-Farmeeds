@@ -16,6 +16,7 @@ class Complain extends Model
         'nama_kelompok',
         'no_hp',
         'provinsi',
+        'kota',
         'kecamatan',
         'kelurahan',
         'keluhan',

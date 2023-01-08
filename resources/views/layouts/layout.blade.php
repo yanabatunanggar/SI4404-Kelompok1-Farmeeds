@@ -6,6 +6,7 @@
 
             <meta name="description" content="">
             <meta name="author" content="">
+            <meta name="csrf-token" content="{{ csrf_token() }}" />
 
             <title>Farmeeds</title>
 
@@ -23,11 +24,16 @@
         @include('layouts.footer')
 
         <!-- JAVASCRIPT FILES -->
-        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
+        {{-- <script src="{{ asset('assets/js/jquery.min.js') }}"></script> --}}
+        {{-- <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script> --}}
+        {{-- <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
         <script src="{{ asset('assets/js/click-scroll.js') }}"></script>
         <script src="{{ asset('assets/js/counter.js') }}"></script>
-        <script src="{{ asset('assets/js/custom.js') }}"></script>
+        <script src="{{ asset('assets/js/custom.js') }}"></script> --}}
+
+        
+
+        
+
     </body>
 </html>
