@@ -44,21 +44,20 @@
             @enderror
         </div>
 
-        <div class="row mb-3">
-            <div class="col-lg-6 col-12"> 
-                <label class="form-label">Provinsi</label>   
-                <select class="form-select" aria-label="Default select example" name="provinsi" id="provinsi">
-                    <option value="Jawa barat">Jawa barat</option>
-                </select>
-            </div>
-    
-            <div class="col-lg-6 col-12"> 
-                <label class="form-label">Kota</label>   
-                <select class="form-select" aria-label="Default select example" name="kota" id="kota">
-                    <option value="Bandung">Bandung</option>
-                    <option value="Bogor">Bogor</option>
-                </select>
-            </div>
+        <div class="col-3">
+            <label class="form-label">Provinsi</label>   
+            <select class="form-select" aria-label="Default select example" name="provinsi" id="provinsi">
+                <option>Pilih Provinsi...</option>
+                @foreach ($provinces as $provinsi)
+                    <option value="{{ $provinsi->id }}">{{ $provinsi->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-3">
+            <label class="form-label">Kota</label>   
+            <select class="form-select" aria-label="Default select example" name="kota" id="kota">
+                
+            </select>
         </div>
 
         <div class="mb-3">
@@ -80,5 +79,36 @@
         <button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
     </form>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+<script>
+    $(function() {
+        $.ajaxSetup({
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+        })
+
+        $(function() {
+            $('#provinsi').on('change', function(){
+                let id_provinsi = $('#provinsi').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{{route('getkota')}}",
+                    data: {id_provinsi:id_provinsi},
+                    cache: false,
+
+                    success: function(msg) {
+                        $('#kota').html(msg);
+                    },
+                    error: function(data){
+                        console.log('error: ', data);
+                    },
+                })
+            })
+        })
+    })
+</script>
+
     
 @endsection

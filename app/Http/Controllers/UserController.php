@@ -45,7 +45,7 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/ajukan-alat');
+            return redirect()->intended('/pengajuan');
         }
 
         return back()->with('loginError', 'Login gagal!');
@@ -54,9 +54,6 @@ class UserController extends Controller
     public function registerView() {
         // Get semua data
         $provinces = Province::all();
-        // $regencies = Regency::all();
-        // $districts = District::all();
-        // $villages = Village::all();
 
         return view('registrasi', compact('provinces'));
     }

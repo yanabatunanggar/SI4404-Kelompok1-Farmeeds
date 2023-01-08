@@ -25,4 +25,16 @@ class Product extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
+
+    public function carts() {
+        return $this->belongsTo(Cart::class, 'id', 'id_product');
+    }
+
+    public function provinces() {
+        return $this->belongsTo(Province::class, 'provinsi', 'id');
+    }
+
+    public function regencies() {
+        return $this->belongsTo(Regency::class, 'kota', 'id');
+    }
 }

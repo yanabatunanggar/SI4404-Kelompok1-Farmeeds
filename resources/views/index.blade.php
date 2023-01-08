@@ -84,7 +84,7 @@
 
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                     <div class="featured-block d-flex justify-content-center align-items-center">
-                        <a href="{{ '/ajukan-alat' }}" class="d-block">
+                        <a href="{{ '/pengajuan' }}" class="d-block">
                             <img src="{{asset('assets/images/icons/heart.png')}}" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Gunakan Produk <strong> Berkualitas</strong></p>
@@ -94,7 +94,7 @@
 
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                     <div class="featured-block d-flex justify-content-center align-items-center">
-                        <a href="{{ '/ajukan-alat' }}" class="d-block">
+                        <a href="{{ '/pengajuan' }}" class="d-block">
                             <img src="{{asset('assets/images/icons/receive.png')}}" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Mulai Kembangkan <strong> Komunitas </strong></p>
@@ -104,7 +104,7 @@
 
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="featured-block d-flex justify-content-center align-items-center">
-                        <a href="{{ '/ajukan-alat' }}" class="d-block">
+                        <a href="{{ '/pengajuan' }}" class="d-block">
                             <img src="{{asset('assets/images/icons/scholarship.png')}}" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Dapatkan bantuan <strong> Gratis </strong></p>
@@ -227,7 +227,7 @@
                 </div>
 
                 <div class="col-lg-5 col-12">
-                    <a href="{{ '/ajukan-alat' }}" class="me-4">Ajukan bibit</a>
+                    <a href="{{ '/ajukan-bibit' }}" class="me-4">Ajukan bibit</a>
 
                     <a href="{{ '/login' }}" class="custom-btn btn smoothscroll">Ambil bagian</a>
                 </div>
@@ -304,7 +304,7 @@
                                 </div>
                             </div>
 
-                            <a href="{{ '/ajukan-alat' }}" class="custom-btn btn">Ajukan</a>
+                            <a href="{{ '/ajukan-bibit' }}" class="custom-btn btn">Ajukan</a>
                         </div>
                     </div>
                 </div>

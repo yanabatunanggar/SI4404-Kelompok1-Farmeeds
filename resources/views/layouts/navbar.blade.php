@@ -38,7 +38,7 @@
 
                 @auth
                     <li class="nav-item ms-3">
-                        <a class="nav-link" href="{{ '/ajukan-alat' }}">Pengajuan</a>
+                        <a class="nav-link" href="{{ '/pengajuan' }}">Pengajuan</a>
                     </li>
 
                     <li class="nav-item dropdown">

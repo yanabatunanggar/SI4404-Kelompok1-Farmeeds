@@ -30,31 +30,6 @@
                     <a class="nav-link" href="{{ '/admin/cekAlat' }}">Alat</a>
                 </li>
 
-                {{-- @auth
-                    <li class="nav-item ms-3">
-                        <a class="nav-link" href="{{ '/ajukan-alat' }}">Pengajuan</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Halo, {{ auth()->user()->nama_lengkap }}</a>
-
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li>
-                                <form action="/logout" method="post">
-                                    @csrf
-                                    <button type="submit" class="dropdown-item">Logout</button>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                @else                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ '/login' }}">Login</a>
-                    </li>
-                @endauth --}}
-
             </ul>
         </div>
     </div>

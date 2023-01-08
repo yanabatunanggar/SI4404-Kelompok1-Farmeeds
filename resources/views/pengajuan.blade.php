@@ -14,8 +14,11 @@
 
                         <div class="row">
                             <div class="col-lg-12 col-12">
-                                <h5 class="mb-3">Pilih Bibit</h5>
+                                <h5 class="mb-3">Pilih Dulu</h5>
                             </div>
+
+                            <a href="{{ '/ajukan-bibit' }}" class="btn btn-primary">Bibit</a>
+                            <a href="{{ '/ajukan-alat' }}" class="btn btn-primary">Alat</a>
 
                             {{-- <div class="col-lg-6 col-6 form-check-group form-check-group-donation-frequency">
                                 <div class="form-check form-check-radio">
@@ -136,7 +139,7 @@
                                     </label>
                                 </div> --}}
 
-                                <button type="submit" class="form-control mt-4">Pesan Sekarang!</button>
+                                {{-- <button type="submit" class="form-control mt-4">Pesan Sekarang!</button> --}}
                             </div>
                         </div>
                     </form>

@@ -1,19 +1,12 @@
-@extends('layouts.layoutAdmin')
+@extends('layouts.layout')
 
 @section('container')
 
 <h1>Ini adalah halaman alat</h1>
 
-@if (session()->has('deleteSuccess'))
+@if (session()->has('addCartSuccess'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('deleteSuccess') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-@endif
-
-@if (session()->has('editSuccess'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('editSuccess') }}
+        {{ session('addCartSuccess') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
@@ -49,17 +42,20 @@
                 <div class="card" style="width: 18rem;">
                     <img src="{{ asset('storage/'.$alat->gambar) }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title">{{ $alat->nama_produk }}</h5>
-                    <p class="card-text">{{ $alat->deskripsi }}</p>
-                    <p class="card-text">Stock: {{ $alat->stock }}</p>
-                    <p class="card-text">Provinsi: {{ $alat->provinces->name }}</p>
-                    <p class="card-text">Kota: {{ $alat->regencies->name }}</p>
-                    <a href="{{ url('/admin/editAlat/'.$alat->id) }}" class="btn btn-primary">Edit</a>
-                    <form action="{{ url('/admin/hapusProduk/'.$alat->id) }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Hapus</button>
-                    </form>
+                        <h5 class="card-title">{{ $alat->nama_produk }}</h5>
+                        <p class="card-text">{{ $alat->deskripsi }}</p>
+                        <p class="card-text">Stock: {{ $alat->stock }}</p>
+                        <p class="card-text">Provinsi: {{ $alat->provinces->name }}</p>
+                        <p class="card-text">Kota: {{ $alat->regencies->name }}</p>
+                        <form action="" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $alat->id }}">
+                            <div class="row">
+                                <label class="form-label" for="jumlah">Jumlah: </label>   
+                                <input type="number" name="jumlah" id="jumlah" min="0" max="{{ $alat->stock }}" value="0">
+                            </div>
+                            <button type="submit" class="btn btn-primary" {{ $alat->stock === 0 ? 'disabled' : '' }}>{{ $alat->stock === 0 ? 'Stock Produk Habis' : 'Tambah Ke Keranjang' }}</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -87,6 +83,42 @@
 
                     success: function(msg) {
                         $('#kota').html(msg);
+                    },
+                    error: function(data){
+                        console.log('error: ', data);
+                    },
+                })
+            })
+
+            $('#kota').on('change', function(){
+                let id_kota = $('#kota').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{{route('getkecamatan')}}",
+                    data: {id_kota:id_kota},
+                    cache: false,
+
+                    success: function(msg) {
+                        $('#kecamatan').html(msg);
+                    },
+                    error: function(data){
+                        console.log('error: ', data);
+                    },
+                })
+            })
+
+            $('#kecamatan').on('change', function(){
+                let id_kecamatan = $('#kecamatan').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{{route('getkelurahan')}}",
+                    data: {id_kecamatan:id_kecamatan},
+                    cache: false,
+
+                    success: function(msg) {
+                        $('#kelurahan').html(msg);
                     },
                     error: function(data){
                         console.log('error: ', data);

@@ -23,17 +23,18 @@ Route::prefix('admin')->group(function () {
     Route::get('/tambahProduk', [ProductController::class, 'tambahProdukView']);
     Route::post('/simpanProduk', [ProductController::class, 'simpanProduk']);
     Route::delete('/hapusProduk/{id}', [ProductController::class, 'hapusProduk']);
-    Route::get('/cekBibit', [ProductController::class, 'showBibit']);
     Route::get('/filterBibit', [ProductController::class, 'filterBibit']);
 
+    Route::get('/cekBibit', [ProductController::class, 'showBibit']);
+
     Route::get('/editBibit/{id}', [ProductController::class, 'editBibit']);
-    Route::put('/updateBibit/{id}', [ProductController::class, 'updateBibit']);
+    Route::post('/updateBibit/{id}', [ProductController::class, 'updateBibit']);
     
     Route::get('/editAlat/{id}', [ProductController::class, 'editAlat']);
-    Route::put('/updateAlat/{id}', [ProductController::class, 'updateAlat']);
+    Route::post('/updateAlat/{id}', [ProductController::class, 'updateAlat']);
     
     Route::get('/cekAlat', [ProductController::class, 'showAlat']);
-    Route::put('/cekAlat/{id}', [ProductController::class, 'updateAlat']);
+    // Route::put('/cekAlat/{id}', [ProductController::class, 'updateAlat']);
 });
 
 Route::get('/login', [UserController::class, 'loginView'])->name('login')->middleware('guest');
@@ -50,16 +51,22 @@ Route::post('/logout', [UserController::class, 'logout']);
 
 Route::post('/tambahKeluhan', [UserController::class, 'addKeluhan'])->middleware('guest');
 
+// profil
 Route::get('/profile/{id}', [UserController::class, 'profileViewDetail'])->middleware('auth');
 Route::get('/editProfile/{id}', [UserController::class, 'editProfile'])->middleware('auth');
 Route::post('/updateProfile/{id}', [UserController::class, 'updateProfile']);
 
+// pengajuan
+Route::get('/pengajuan', [ProductController::class, 'pengajuanView'])->middleware('auth');
 Route::get('/ajukan-bibit', [ProductController::class, 'bibitView'])->middleware('auth');
 Route::post('/ajukan-bibit', [ProductController::class, 'ajukanBibit']);
 Route::get('/ajukan-alat', [ProductController::class, 'alatView'])->middleware('auth');
 Route::post('/ajukan-alat', [ProductController::class, 'ajukanAlat']);
 
-Route::get('/cart', [CartController::class, 'index'])->middleware('auth');
+// cart
+Route::get('/cart', [CartController::class, 'cartView'])->middleware('auth');
+Route::post('/addCart', [CartController::class, 'tambahCart'])->middleware('auth');
+
 Route::get('/news', [UserController::class, 'showNews']);
 Route::get('/news-detail', [UserController::class, 'showNewsDetail']);
 Route::get('/statusUser', [OrderController::class, 'statusUser'])->middleware('auth');

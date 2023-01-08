@@ -3,21 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Province;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    public function bibitView() {
+    public function pengajuanView() {
         return view('pengajuan');
+    }
+
+    public function bibitView() {
+        $provinces = Province::all();
+        $bibits = Product::where('kategori', 'bibit')->get();
+        
+        return view('ajukanBibit', compact('provinces', 'bibits'));
     }
 
     public function alatView() {
-        return view('pengajuan');
+        $provinces = Province::all();
+        $alats = Product::where('kategori', 'alat')->get();
+        
+        return view('ajukanAlat', compact('provinces', 'alats'));
     }
 
     public function tambahProdukView() {
-        return view('admin/tambah');
+        $provinces = Province::all();
+
+        return view('admin/tambah', compact('provinces'));
     }
 
     public function simpanProduk(Request $request) {
@@ -47,47 +60,83 @@ class ProductController extends Controller
         return redirect()->back()->with('deleteSuccess', 'Produk berhasil dihapus');
     }
 
-    public function showBibit(Request $request) {        
-        $bibits = Product::query();
+    public function showBibit(Request $request) {   
+        $bibits = Product::where('kategori', 'bibit')->get();
+        $provinces = Province::all();
 
-        $bibits->when($request->kota, function($query) use ($request) {
-            return $query->where('kota', '==' ,$request->kota);
-        });
-
-        return view('admin/bibit', [
-            'bibits' => Product::where('kategori', 'bibit')->get(),
-            'provinces' => Product::select('provinsi')->distinct()->get(),
-            'cities' => Product::select('kota')->distinct()->get()
-        ]);
+        return view('admin/bibit', compact('bibits', 'provinces'));
     }
 
-    public function editBibit(Request $request) {
+    public function editBibit(Request $request, $id) {
+        $product = Product::find($id);
+        $provinces = Province::all();
+
+        return view('admin/editBibit', compact('product', 'provinces'));
+    }
+
+    public function updateBibit(Request $request) {
         $id = $request->id;
-        return view('admin/editBibit', [
-            'product' => Product::find($id)
-        ]);
+        $data = $request->all();
+
+        $bibit = Product::find($id);
+
+        if (( $request->hasFile('gambar') )) {
+            $img = Storage::disk('public')->put('/fotoProduk', $request->file('gambar'));
+            $bibit->gambar = $img;
+        }
+
+        if ( ($request->filled('provinsi')) && ($request->filled('kota')) ) {
+            $bibit->provinsi = $data['provinsi'];
+            $bibit->kota = $data['kota'];
+        }
+
+        $bibit->nama_produk = $data['nama_produk'];
+        $bibit->kategori = $data['kategori'];
+        $bibit->stock = $data['stock'];
+        $bibit->deskripsi = $data['deskripsi'];
+
+        $bibit->save();
+
+        return redirect('/admin/cekBibit')->with('editSuccess', 'Bibit Berhasil Diubah');
     }
-
-    // public function filterBibit(Request $request) {
-    //     $bibits = Product::query();
-
-    //     $bibits->when($request->kota, function($query) use ($request) {
-    //         return $query->where('kota', '==' ,$request->kota);
-    //     });
-    // }
 
     public function showAlat() {
-        return view('admin/alat', [
-            'alats' => Product::where('kategori', 'alat')->get(),
-            'provinces' => Product::select('provinsi')->where('kategori', 'alat')->distinct()->get(),
-            'cities' => Product::select('kota')->where('kategori', 'alat')->distinct()->get()
-        ]);
+        $alats = Product::where('kategori', 'alat')->with(['provinces', 'regencies'])->get();
+        $provinces = Province::all();
+
+        return view('admin/alat', compact('alats', 'provinces'));
     }
 
-    public function editAlat(Request $request) {
+    public function editAlat(Request $request, $id) {
+        $product = Product::find($id);
+        $provinces = Province::all();
+
+        return view('admin/editAlat', compact('product', 'provinces'));
+    }
+
+    public function updateAlat(Request $request) {
         $id = $request->id;
-        return view('admin/editAlat', [
-            'product' => Product::find($request->id)
-        ]);
+        $data = $request->all();
+
+        $alat = Product::find($id);
+
+        if (( $request->hasFile('gambar') )) {
+            $img = Storage::disk('public')->put('/fotoProduk', $request->file('gambar'));
+            $alat->gambar = $img;
+        }
+
+        if ( ($request->filled('provinsi')) && ($request->filled('kota')) ) {
+            $alat->provinsi = $data['provinsi'];
+            $alat->kota = $data['kota'];
+        }
+
+        $alat->nama_produk = $data['nama_produk'];
+        $alat->kategori = $data['kategori'];
+        $alat->stock = $data['stock'];
+        $alat->deskripsi = $data['deskripsi'];
+
+        $alat->save();
+
+        return redirect('/admin/cekAlat')->with('editSuccess', 'Alat Berhasil Diubah');
     }
 }

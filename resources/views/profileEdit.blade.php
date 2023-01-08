@@ -42,15 +42,6 @@
                 @enderror
             </div>
 
-            {{-- <div class="col-lg-6 col-12">
-                <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required>
-                @error('password')
-                    <div class="invalid-feedback">
-                        {{$message}}
-                    </div>
-                @enderror
-            </div> --}}
-
             <div class="col-lg-12 col-12 mt-3">
                 <label class="input-group-text">Upload surat keterangan kelompok tani</label>
                 <input type="file" class="form-control" id="foto_surat" name="foto_surat">
