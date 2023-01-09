@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Complain;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Regency;
+use App\Models\Village;
+use App\Models\Complain;
+use App\Models\District;
+use App\Models\OrderDetail;
+use App\Models\Province;
 use Illuminate\Http\Request;
+
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
-
-
-use App\Models\Province;
-use App\Models\Regency;
-use App\Models\District;
-use App\Models\Village;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -23,10 +25,6 @@ class UserController extends Controller
         $provinces = Province::all();
 
         return view('index', compact('provinces'));
-    }
-
-    public function adminView() {
-        return view('admin/home');
     }
 
     // public function adminView() {
@@ -45,7 +43,12 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/pengajuan');
+
+            if(auth()->user()->role === 'user') {
+                return redirect()->intended('/pengajuan');
+            }
+
+            return redirect()->intended('/admin');
         }
 
         return back()->with('loginError', 'Login gagal!');
@@ -150,5 +153,12 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->to('/profile/'.$id)->with('editSuccess', 'Profil Berhasil Diubah');
+    }
+
+    public function status() {
+        $orders = Order::where('user_id', auth()->user()->id)->get();
+        // $order_detail = OrderDetail::where('user_id', auth()->user()->id)->get();
+
+        return view('status', compact('orders'));
     }
 }

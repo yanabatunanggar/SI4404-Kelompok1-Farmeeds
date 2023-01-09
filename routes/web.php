@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
@@ -19,22 +20,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::prefix('admin')->group(function () {
-    Route::get('/', [UserController::class, 'adminView']);
-    Route::get('/tambahProduk', [ProductController::class, 'tambahProdukView']);
+    Route::get('/', [AdminController::class, 'adminView'])->middleware('auth');
+    Route::get('/tambahProduk', [ProductController::class, 'tambahProdukView'])->middleware('auth');
     Route::post('/simpanProduk', [ProductController::class, 'simpanProduk']);
     Route::delete('/hapusProduk/{id}', [ProductController::class, 'hapusProduk']);
-    Route::get('/filterBibit', [ProductController::class, 'filterBibit']);
+    Route::get('/filterBibit', [ProductController::class, 'filterBibit'])->middleware('auth');
 
-    Route::get('/cekBibit', [ProductController::class, 'showBibit']);
+    Route::get('/cekBibit', [ProductController::class, 'showBibit'])->middleware('auth');
+    Route::get('/cekAlat', [ProductController::class, 'showAlat'])->middleware('auth');
 
-    Route::get('/editBibit/{id}', [ProductController::class, 'editBibit']);
+    Route::get('/editBibit/{id}', [ProductController::class, 'editBibit'])->middleware('auth');
     Route::post('/updateBibit/{id}', [ProductController::class, 'updateBibit']);
     
-    Route::get('/editAlat/{id}', [ProductController::class, 'editAlat']);
+    Route::get('/editAlat/{id}', [ProductController::class, 'editAlat'])->middleware('auth');
     Route::post('/updateAlat/{id}', [ProductController::class, 'updateAlat']);
     
-    Route::get('/cekAlat', [ProductController::class, 'showAlat']);
-    // Route::put('/cekAlat/{id}', [ProductController::class, 'updateAlat']);
+    Route::get('/detailOrder/{id}', [AdminController::class, 'detailOrder'])->middleware('auth')->name('detailOrder');
+
+    Route::post('/ubahStatus/{id}', [AdminController::class, 'ubahStatus'])->middleware('auth')->name('ubahStatus');
+
 });
 
 Route::get('/login', [UserController::class, 'loginView'])->name('login')->middleware('guest');
@@ -58,14 +62,30 @@ Route::post('/updateProfile/{id}', [UserController::class, 'updateProfile']);
 
 // pengajuan
 Route::get('/pengajuan', [ProductController::class, 'pengajuanView'])->middleware('auth');
+
+// status
+Route::get('/status', [UserController::class, 'status'])->middleware('auth')->name('status');
+Route::get('/detailOrder/{id}', [AdminController::class, 'detailOrder'])->middleware('auth')->name('detailOrder.user');
+
+
+// detail bibit
 Route::get('/ajukan-bibit', [ProductController::class, 'bibitView'])->middleware('auth');
-Route::post('/ajukan-bibit', [ProductController::class, 'ajukanBibit']);
+Route::post('/ajukan-bibit-f', [ProductController::class, 'bibitView'])->middleware('auth');
 Route::get('/ajukan-alat', [ProductController::class, 'alatView'])->middleware('auth');
+
+Route::post('/ajukan-bibit', [ProductController::class, 'ajukanBibit']);
 Route::post('/ajukan-alat', [ProductController::class, 'ajukanAlat']);
 
 // cart
-Route::get('/cart', [CartController::class, 'cartView'])->middleware('auth');
+Route::get('/cart/{id}', [CartController::class, 'cartView'])->middleware('auth');
 Route::post('/addCart', [CartController::class, 'tambahCart'])->middleware('auth');
+// Route::post('/updateJumlah', [CartController::class, 'updateCart'])->middleware('auth');
+
+// order
+Route::get('/order', [orderController::class, 'orderView'])->middleware('auth');
+Route::post('/tambahPesanan', [orderController::class, 'tambahPesanan'])->middleware('auth');
+
+Route::get('/deleteCart/{id}', [CartController::class, 'deleteCart'])->middleware('auth');
 
 Route::get('/news', [UserController::class, 'showNews']);
 Route::get('/news-detail', [UserController::class, 'showNewsDetail']);

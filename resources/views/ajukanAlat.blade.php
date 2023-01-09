@@ -47,7 +47,7 @@
                         <p class="card-text">Stock: {{ $alat->stock }}</p>
                         <p class="card-text">Provinsi: {{ $alat->provinces->name }}</p>
                         <p class="card-text">Kota: {{ $alat->regencies->name }}</p>
-                        <form action="" method="post">
+                        <form action="/addCart" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{ $alat->id }}">
                             <div class="row">

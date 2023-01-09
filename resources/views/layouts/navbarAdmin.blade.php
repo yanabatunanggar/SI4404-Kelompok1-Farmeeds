@@ -1,7 +1,8 @@
+@auth
 <nav class="navbar navbar-expand-lg bg-light shadow-lg">
     <div class="container">
         <a class="navbar-brand" href="{{ '/' }}">
-            <img src="images/logo.png" class="logo img-fluid" alt="">
+            <img src="{{ url('assets/images/logo.png')}}" class="logo img-fluid" alt="">
             <span>
                 Farmeeds
                 <small>Dipersembahkan oleh Dinas Pertanian</small>
@@ -28,6 +29,20 @@
                 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ '/admin/cekAlat' }}">Alat</a>
+                </li>
+
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Halo, {{ auth()->user()->nama_lengkap }}</a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit" class="dropdown-item">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
                 </li>
 
             </ul>
@@ -81,3 +96,5 @@
         </div>
     </div>
 </header>
+    
+@endauth

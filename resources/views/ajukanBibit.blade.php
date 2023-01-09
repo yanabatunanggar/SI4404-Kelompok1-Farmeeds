@@ -15,7 +15,8 @@
 
     <div class="row">
         <div class="col-3">Filter</div>
-        <form action="">
+        <form action="{{url('ajukan-bibit-f')}}" method="POST">
+            @csrf
             <div class="col-3">
                 <label class="form-label">Provinsi</label>   
                 <select class="form-select" aria-label="Default select example" name="provinsi" id="provinsi">
@@ -28,18 +29,6 @@
             <div class="col-3">
                 <label class="form-label">Kota</label>   
                 <select class="form-select" aria-label="Default select example" name="kota" id="kota">
-                    
-                </select>
-            </div>
-            <div class="col-3">
-                <label class="form-label">Kecamatan</label>   
-                <select class="form-select" aria-label="Default select example" name="kecamatan" id="kecamatan">
-                    
-                </select>
-            </div>
-            <div class="col-3">
-                <label class="form-label">Kelurahan</label>   
-                <select class="form-select" aria-label="Default select example" name="kelurahan" id="kelurahan">
                     
                 </select>
             </div>

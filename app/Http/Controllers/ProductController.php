@@ -13,14 +13,26 @@ class ProductController extends Controller
         return view('pengajuan');
     }
 
-    public function bibitView() {
+    public function bibitView(Request $request) {
+        if(isset($request->kota)) {
+            $provinces = Province::all();
+           $bibits = Product::where('kota', $request->kota)->get(); 
+           return view('ajukanBibit', compact('provinces', 'bibits'));
+        };
+
         $provinces = Province::all();
         $bibits = Product::where('kategori', 'bibit')->get();
         
         return view('ajukanBibit', compact('provinces', 'bibits'));
     }
 
-    public function alatView() {
+    public function alatView(Request $request) {
+        if(isset($request->kota)) {
+           $provinces = Province::all();
+           $alats = Product::where('kota', $request->kota)->get(); 
+           return view('ajukanAlat', compact('provinces', 'alats'));
+        };
+
         $provinces = Province::all();
         $alats = Product::where('kategori', 'alat')->get();
         

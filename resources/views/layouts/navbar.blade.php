@@ -37,9 +37,25 @@
                 </li>
 
                 @auth
-                    <li class="nav-item ms-3">
-                        <a class="nav-link" href="{{ '/pengajuan' }}">Pengajuan</a>
-                    </li>
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pengajuan</a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="{{ '/ajukan-bibit' }}">Bibit</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ '/ajukan-alat' }}">Alat</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ '/cart/'.auth()->user()->id }}">Keranjang</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('status') }}">Status</a>
+                        </li>
+                    </ul>
+                </li>
 
                     <li class="nav-item dropdown">
 
