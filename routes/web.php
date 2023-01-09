@@ -23,13 +23,14 @@ Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'adminView'])->middleware('auth')->name('admin');
     Route::get('/tambahProduk', [ProductController::class, 'tambahProdukView'])->middleware('auth')->name('tambahProduk');
     Route::post('/simpanProduk', [ProductController::class, 'simpanProduk']);
-    Route::delete('/hapusProduk/{id}', [ProductController::class, 'hapusProduk']);
+    Route::get('/hapusProduk/{id}', [ProductController::class, 'hapusProduk'])->name('hapusProduk');
     // Route::get('/filterBibit', [ProductController::class, 'filterBibit'])->middleware('auth')->name('');
 
     Route::get('/cekBibit', [ProductController::class, 'showBibit'])->middleware('auth')->name('cekBibit');
     Route::get('/cekAlat', [ProductController::class, 'showAlat'])->middleware('auth')->name('cekAlat');
 
     Route::get('/editBibit/{id}', [ProductController::class, 'editBibit'])->middleware('auth')->name('editBibit');
+    // Route::get('/editBibit/{id}', [ProductController::class, 'editBibit'])->middleware('auth')->name('editBibit');
     Route::post('/updateBibit/{id}', [ProductController::class, 'updateBibit']);
     
     Route::get('/editAlat/{id}', [ProductController::class, 'editAlat'])->middleware('auth')->name('editAlat');
@@ -38,6 +39,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/detailOrder/{id}', [AdminController::class, 'detailOrder'])->middleware('auth')->name('detailOrder');
 
     Route::get('/statusPesanan', [AdminController::class, 'statusPesanan'])->middleware('auth')->name('statusPesanan');
+    Route::get('/editPesanan', [AdminController::class, 'editPesanan'])->middleware('auth')->name('editPesanan');
+
     Route::get('/pesanCustomer', [AdminController::class, 'pesanCustomer'])->middleware('auth')->name('pesanCustomer');
 
     Route::post('/ubahStatus/{id}', [AdminController::class, 'ubahStatus'])->middleware('auth')->name('ubahStatus');

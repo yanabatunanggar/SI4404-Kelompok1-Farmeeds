@@ -40,8 +40,8 @@ class ProductController extends Controller
     }
 
     public function tambahProdukView() {
-        // $provinces = Province::all();
-        return view('admin2/tambahproduk');
+        $provinces = Province::all();
+        return view('admin/tambah', compact('provinces'));
         // return view('admin/tambah', compact('provinces'));
     }
 
@@ -76,15 +76,22 @@ class ProductController extends Controller
         $bibits = Product::where('kategori', 'bibit')->get();
         $provinces = Province::all();
 
-        return view('admin2/bibit', compact('bibits', 'provinces'));
+        return view('admin/bibit', compact('bibits', 'provinces'));
     }
 
     public function editBibit(Request $request, $id) {
         $product = Product::find($id);
         $provinces = Province::all();
 
-        return view('admin/editBibit', compact('product', 'provinces'));
+        return view('admin/editproduk', compact('product', 'provinces'));
     }
+
+    // public function editBibit($id) {
+    //     $product = Product::find($id);
+    //     // $provinces = Province::all();
+
+    //     return view('admin2/editproduk', compact('product'));
+    // }
 
     public function updateBibit(Request $request) {
         $id = $request->id;
@@ -109,14 +116,14 @@ class ProductController extends Controller
 
         $bibit->save();
 
-        return redirect('/admin/cekBibit')->with('editSuccess', 'Bibit Berhasil Diubah');
+        return redirect('/admin/cekBibit')->with('editSuccess', 'Produk Berhasil Diubah');
     }
 
     public function showAlat() {
         $alats = Product::where('kategori', 'alat')->with(['provinces', 'regencies'])->get();
         $provinces = Province::all();
 
-        return view('admin2/alat', compact('alats', 'provinces'));
+        return view('admin/alat', compact('alats', 'provinces'));
     }
 
     public function editAlat(Request $request, $id) {
@@ -149,6 +156,6 @@ class ProductController extends Controller
 
         $alat->save();
 
-        return redirect('/admin/cekAlat')->with('editSuccess', 'Alat Berhasil Diubah');
+        return redirect('/admin/cekAlat')->with('editSuccess', 'Produk Berhasil Diubah');
     }
 }
