@@ -10,11 +10,11 @@
 
             <title>Farmeeds</title>
 
-            <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/users/css/bootstrap.min.css') }}" rel="stylesheet">
 
-            <link href="{{ asset('assets/css/bootstrap-icons.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/users/css/bootstrap-icons.css') }}" rel="stylesheet">
 
-            <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/users/css/style.css') }}" rel="stylesheet">
         </head>
     <body id="section_1">
         @include('layouts.navbar')

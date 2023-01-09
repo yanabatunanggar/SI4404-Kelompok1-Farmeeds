@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-light shadow-lg">
     <div class="container">
         <a class="navbar-brand" href="{{ '/' }}">
-            <img src="{{ asset('/assets/images/logo.png')}}" class="logo img-fluid" alt="">
+            <img src="{{ asset('/assets/users/images/logo.png')}}" class="logo img-fluid" alt="">
             <span>
                 Farmeeds
                 <small>Dipersembahkan oleh Dinas Pertanian</small>

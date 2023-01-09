@@ -17,7 +17,7 @@
                     <div id="hero-slide" class="carousel carousel-fade slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="{{asset('assets/images/slide/petani1.jpg')}}" class="carousel-image img-fluid" alt="...">
+                                <img src="{{asset('assets/users/images/slide/petani1.jpg')}}" class="carousel-image img-fluid" alt="...">
                                 
                                 <div class="carousel-caption d-flex flex-column justify-content-end">
                                     <h1>Bersama <br> Petani</h1>
@@ -27,7 +27,7 @@
                             </div>
 
                             <div class="carousel-item">
-                                <img src="{{asset('assets/images/slide/petani2.jpg')}}" class="carousel-image img-fluid" alt="...">
+                                <img src="{{asset('assets/users/images/slide/petani2.jpg')}}" class="carousel-image img-fluid" alt="...">
                                 
                                 <div class="carousel-caption d-flex flex-column justify-content-end">
                                     <h1>Tidak <br> Dipungut <br> Biaya</h1>
@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="carousel-item">
-                                <img src="{{asset('assets/images/slide/petani3.jpeg')}}" class="carousel-image img-fluid" alt="...">
+                                <img src="{{asset('assets/users/images/slide/petani3.jpeg')}}" class="carousel-image img-fluid" alt="...">
                                 
                                 <div class="carousel-caption d-flex flex-column justify-content-end">
                                     <h1>Kemanusiaan</h1>
@@ -75,7 +75,7 @@
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="featured-block d-flex justify-content-center align-items-center">
                         <a href="{{ '/login' }}" class="d-block">
-                            <img src="{{asset('assets/images/icons/hands.png')}}" class="featured-block-image img-fluid" alt="">
+                            <img src="{{asset('assets/users/images/icons/hands.png')}}" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Jadi bagian dari <strong>Kelompok Tani</strong></p>
                         </a>
@@ -85,7 +85,7 @@
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                     <div class="featured-block d-flex justify-content-center align-items-center">
                         <a href="{{ '/pengajuan' }}" class="d-block">
-                            <img src="{{asset('assets/images/icons/heart.png')}}" class="featured-block-image img-fluid" alt="">
+                            <img src="{{asset('assets/users/images/icons/heart.png')}}" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Gunakan Produk <strong> Berkualitas</strong></p>
                         </a>
@@ -95,7 +95,7 @@
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                     <div class="featured-block d-flex justify-content-center align-items-center">
                         <a href="{{ '/pengajuan' }}" class="d-block">
-                            <img src="{{asset('assets/images/icons/receive.png')}}" class="featured-block-image img-fluid" alt="">
+                            <img src="{{asset('assets/users/images/icons/receive.png')}}" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Mulai Kembangkan <strong> Komunitas </strong></p>
                         </a>
@@ -105,7 +105,7 @@
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="featured-block d-flex justify-content-center align-items-center">
                         <a href="{{ '/pengajuan' }}" class="d-block">
-                            <img src="{{asset('assets/images/icons/scholarship.png')}}" class="featured-block-image img-fluid" alt="">
+                            <img src="{{asset('assets/users/images/icons/scholarship.png')}}" class="featured-block-image img-fluid" alt="">
 
                             <p class="featured-block-text">Dapatkan bantuan <strong> Gratis </strong></p>
                         </a>
@@ -121,7 +121,7 @@
             <div class="row">
 
                 <div class="col-lg-6 col-12 mb-5 mb-lg-0">
-                    <img src="{{asset('assets/images/petani5.jpg')}}" class="custom-text-box-image img-fluid" alt="">
+                    <img src="{{asset('assets/users/images/petani5.jpg')}}" class="custom-text-box-image img-fluid" alt="">
                 </div>
 
                 <div class="col-lg-6 col-12">
@@ -187,7 +187,7 @@
             <div class="row">
 
                 <div class="col-lg-6 col-md-5 col-12">
-                    <img src="{{asset('assets/images/mentri.jpg')}}" class="about-image ms-lg-auto bg-light shadow-lg img-fluid" alt="">
+                    <img src="{{asset('assets/users/images/mentri.jpg')}}" class="about-image ms-lg-auto bg-light shadow-lg img-fluid" alt="">
                 </div>
 
                 <div class="col-lg-5 col-md-7 col-12">

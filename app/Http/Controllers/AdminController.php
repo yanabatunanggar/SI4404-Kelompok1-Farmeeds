@@ -11,7 +11,7 @@ class AdminController extends Controller
     public function adminView() {
         $orders = Order::all();
 
-        return view('/admin/home', compact('orders'));
+        return view('/admin2/index', compact('orders'));
     }
 
     public function detailOrder($id) {
@@ -30,5 +30,13 @@ class AdminController extends Controller
 
         return redirect()->back()->with('updateSuccess', 'Status Berhasil Diubah');
 
+    }
+
+    public function statusPesanan() {
+        return view('admin2/statuspesanan');
+    }
+    
+    public function pesanCustomer() {
+        return view('admin2/pesanCustomer');
     }
 }

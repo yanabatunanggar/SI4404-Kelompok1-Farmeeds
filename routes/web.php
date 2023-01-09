@@ -20,22 +20,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::prefix('admin')->group(function () {
-    Route::get('/', [AdminController::class, 'adminView'])->middleware('auth');
-    Route::get('/tambahProduk', [ProductController::class, 'tambahProdukView'])->middleware('auth');
+    Route::get('/', [AdminController::class, 'adminView'])->middleware('auth')->name('admin');
+    Route::get('/tambahProduk', [ProductController::class, 'tambahProdukView'])->middleware('auth')->name('tambahProduk');
     Route::post('/simpanProduk', [ProductController::class, 'simpanProduk']);
     Route::delete('/hapusProduk/{id}', [ProductController::class, 'hapusProduk']);
-    Route::get('/filterBibit', [ProductController::class, 'filterBibit'])->middleware('auth');
+    // Route::get('/filterBibit', [ProductController::class, 'filterBibit'])->middleware('auth')->name('');
 
-    Route::get('/cekBibit', [ProductController::class, 'showBibit'])->middleware('auth');
-    Route::get('/cekAlat', [ProductController::class, 'showAlat'])->middleware('auth');
+    Route::get('/cekBibit', [ProductController::class, 'showBibit'])->middleware('auth')->name('cekBibit');
+    Route::get('/cekAlat', [ProductController::class, 'showAlat'])->middleware('auth')->name('cekAlat');
 
-    Route::get('/editBibit/{id}', [ProductController::class, 'editBibit'])->middleware('auth');
+    Route::get('/editBibit/{id}', [ProductController::class, 'editBibit'])->middleware('auth')->name('editBibit');
     Route::post('/updateBibit/{id}', [ProductController::class, 'updateBibit']);
     
-    Route::get('/editAlat/{id}', [ProductController::class, 'editAlat'])->middleware('auth');
+    Route::get('/editAlat/{id}', [ProductController::class, 'editAlat'])->middleware('auth')->name('editAlat');
     Route::post('/updateAlat/{id}', [ProductController::class, 'updateAlat']);
     
     Route::get('/detailOrder/{id}', [AdminController::class, 'detailOrder'])->middleware('auth')->name('detailOrder');
+
+    Route::get('/statusPesanan', [AdminController::class, 'statusPesanan'])->middleware('auth')->name('statusPesanan');
+    Route::get('/pesanCustomer', [AdminController::class, 'pesanCustomer'])->middleware('auth')->name('pesanCustomer');
 
     Route::post('/ubahStatus/{id}', [AdminController::class, 'ubahStatus'])->middleware('auth')->name('ubahStatus');
 

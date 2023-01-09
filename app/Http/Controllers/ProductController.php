@@ -40,9 +40,9 @@ class ProductController extends Controller
     }
 
     public function tambahProdukView() {
-        $provinces = Province::all();
-
-        return view('admin/tambah', compact('provinces'));
+        // $provinces = Province::all();
+        return view('admin2/tambahproduk');
+        // return view('admin/tambah', compact('provinces'));
     }
 
     public function simpanProduk(Request $request) {
@@ -76,7 +76,7 @@ class ProductController extends Controller
         $bibits = Product::where('kategori', 'bibit')->get();
         $provinces = Province::all();
 
-        return view('admin/bibit', compact('bibits', 'provinces'));
+        return view('admin2/bibit', compact('bibits', 'provinces'));
     }
 
     public function editBibit(Request $request, $id) {
@@ -116,7 +116,7 @@ class ProductController extends Controller
         $alats = Product::where('kategori', 'alat')->with(['provinces', 'regencies'])->get();
         $provinces = Province::all();
 
-        return view('admin/alat', compact('alats', 'provinces'));
+        return view('admin2/alat', compact('alats', 'provinces'));
     }
 
     public function editAlat(Request $request, $id) {
