@@ -26,15 +26,10 @@
                     <a class="nav-link click-scroll" href="#section_3">Testimoni</a>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Berita</a>
-
-                    <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                        <li><a class="dropdown-item" href="{{ '/news' }}">Berita Pertanian</a></li>
-
-                        <li><a class="dropdown-item" href="{{ '/news-detail' }}">Kabar Dinas</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="#section_5">Berita</a>
                 </li>
+
 
                 @auth
                 <li class="nav-item dropdown">

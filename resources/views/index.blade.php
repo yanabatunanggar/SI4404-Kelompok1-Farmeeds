@@ -602,16 +602,19 @@
 
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">
+                                <label class="input-group-text">Nama Lengkap</label> 
                                 <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" placeholder="Nama Anda" required>
                             </div>
 
                             <div class="col-lg-6 col-md-6 col-12">
-                                <input type="text" name="nama_kelompok" id="nama_kelompok" class="form-control" placeholder="Nama Kelompok Petani" required>
+                                <label class="input-group-text">No HP</label> 
+                                <input type="text" name="no_hp" id="no_hp" class="form-control" placeholder="Nomor HP" required>
                             </div>
                         </div>
-
+                        
                         <div class="col-lg-12 col-md-6 col-12">
-                            <input type="text" name="no_hp" id="no_hp" class="form-control" placeholder="Nomor HP" required>
+                            <label class="input-group-text">Nama Kelompok</label> 
+                            <input type="text" name="nama_kelompok" id="nama_kelompok" class="form-control" placeholder="Nama Kelompok Petani" required>
                         </div>
 
                         <div class="row">
@@ -648,8 +651,11 @@
                                 </select>
                             </div>
                         </div>
-
-                        <textarea name="keluhan" rows="5" class="form-control mt-3" id="keluhan" placeholder="Apa yang dapat kami bantu?"></textarea>
+                        
+                        <div class="mt-3">
+                            <label class="input-group-text"> Pesan </label>  
+                            <textarea name="keluhan" rows="5" class="form-control mt-3" id="keluhan" placeholder="Apa yang dapat kami bantu?"></textarea>
+                        </div>
 
                         <button type="submit" class="form-control" name="kirim">Kirim</button>
                     </form>
