@@ -2,7 +2,15 @@
 
 @section('container')
 
-<h1>Halaman status User</h1>
+<h4 class="text-center mt-4 mb-4">Lihat Status Pengajuanmu di sini</h4>
+@if (session()->has('addSuccess'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('addSuccess') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
+<div class="container mb-5">
 
 <table class="table">
     <thead>
@@ -11,7 +19,6 @@
             <th scope="col">Tanggal Pengajuan</th>
             <th scope="col">Nama Produk</th>
             <th scope="col">Status</th>
-            <th scope="col">Aksi</th>
         </tr>
     </thead>
     <tbody>
@@ -28,5 +35,6 @@
     </tbody>
     
 </table>
-    
+</div>
+
 @endsection

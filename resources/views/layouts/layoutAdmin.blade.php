@@ -21,7 +21,7 @@
         
         @yield('container')
 
-        @include('layouts.footer')
+        @include('layouts.footerAdmin')
 
         <!-- JAVASCRIPT FILES -->
         {{-- <script src="{{ asset('assets/js/jquery.min.js') }}"></script> --}}

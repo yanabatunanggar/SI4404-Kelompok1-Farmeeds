@@ -16,7 +16,8 @@
 
                         <div class="row">
                             <div class="col-lg-6 col-12">
-                                <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control @error('nama_lengkap') is-invalid @enderror" placeholder="Nama Lengkap" required>
+                                <label class="input-group-text">Nama Lengkap</label>  
+                                <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control @error('nama_lengkap') is-invalid @enderror" placeholder="Masukkan Nama Lengkap Anda" required>
                                 @error('nama_lengkap')
                                     <div class="invalid-feedback">
                                         {{$message}}
@@ -25,7 +26,8 @@
                             </div>
 
                             <div class="col-lg-6 col-12">
-                                <input type="text" name="nama_kelompok" id="nama_kelompok" class="form-control @error('nama_kelompok') is-invalid @enderror" placeholder="Nama Kelompok Tani" required>
+                                <label class="input-group-text">Nama Kelompok Tani</label>  
+                                <input type="text" name="nama_kelompok" id="nama_kelompok" class="form-control @error('nama_kelompok') is-invalid @enderror" placeholder="Masukkan Nama Kelompok Tani" required>
                                 @error('nama_kelompok')
                                     <div class="invalid-feedback">
                                         {{$message}}
@@ -34,19 +36,20 @@
                             </div>
 
                             <div class="col-lg-6 col-12">
-                                <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required>
-                                @error('password')
+                                <label class="input-group-text">Nomor HP</label>  
+                                <input type="text" name="no_hp" id="no_hp" class="form-control @error('no_hp') is-invalid @enderror" placeholder="Nomor HP" required>
+                                
+                                @error('no_hp')
                                     <div class="invalid-feedback">
                                         {{$message}}
                                     </div>
                                 @enderror
                             </div>
-                            
 
                             <div class="col-lg-6 col-12">
-                                <input type="text" name="no_hp" id="no_hp" class="form-control @error('no_hp') is-invalid @enderror" placeholder="Nomor HP" required>
-                                
-                                @error('no_hp')
+                                <label class="input-group-text">Password</label>  
+                                <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required>
+                                @error('password')
                                     <div class="invalid-feedback">
                                         {{$message}}
                                     </div>
@@ -92,6 +95,7 @@
 
                         </div>
 
+                        <label class="input-group-text">Alamat Lengkap</label>
                         <textarea name="alamat" rows="3" class="form-control" id="alamat" placeholder="Alamat lengkap"></textarea>
 
                         <p class="mb-4">Sudah punya akun? Login

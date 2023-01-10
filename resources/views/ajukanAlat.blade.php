@@ -1,23 +1,28 @@
 @extends('layouts.layout')
-
 @section('container')
 
-<h1>Ini adalah halaman alat</h1>
+<main>
 
-@if (session()->has('addCartSuccess'))
+    <section class="volunteer-section section-padding" id="section_4">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-10 col-12">
+                    <h2 class="text-white mb-4">Ajukan alat Anda di sini</h2>
+                    
+                    @if (session()->has('addCartSuccess'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('addCartSuccess') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
-    
-<div class="container">
 
     <div class="row">
-        <div class="col-3">Filter</div>
+        <div class="col-3">
+        </div>
         <form action="">
             <div class="col-3">
-                <label class="form-label">Provinsi</label>   
+                <label class="form-label"><b>Provinsi</b></label>   
                 <select class="form-select" aria-label="Default select example" name="provinsi" id="provinsi">
                     <option>Pilih Provinsi...</option>
                     @foreach ($provinces as $provinsi)
@@ -25,43 +30,50 @@
                     @endforeach
                 </select>
             </div>
+            <br>
             <div class="col-3">
-                <label class="form-label">Kota</label>   
+                <label class="form-label"><b>Kota</b></label>   
                 <select class="form-select" aria-label="Default select example" name="kota" id="kota">
-                    
                 </select>
             </div>
         
-            <button type="submit" class="btn btn-primary">Filter</button>
+            <br><button type="submit" class="btn btn-primary">Filter</button>
         </form>
     </div>
+    
+    <section class="section-padding" id="section_3">
+        <div class="container">
+            <div class="row">
+                @foreach ($alats as $alat)
+                <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                    <div class="custom-block-wrap">
+                        <img src="{{ asset('storage/'.$alat->gambar) }}" class="card-img-top" alt="...">
 
-    <div class="row mt-5">
-        @foreach ($alats as $alat)
-            <div class="col-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="{{ asset('storage/'.$alat->gambar) }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $alat->nama_produk }}</h5>
-                        <p class="card-text">{{ $alat->deskripsi }}</p>
-                        <p class="card-text">Stock: {{ $alat->stock }}</p>
-                        <p class="card-text">Provinsi: {{ $alat->provinces->name }}</p>
-                        <p class="card-text">Kota: {{ $alat->regencies->name }}</p>
-                        <form action="/addCart" method="post">
-                            @csrf
-                            <input type="hidden" name="id" value="{{ $alat->id }}">
-                            <div class="row">
-                                <label class="form-label" for="jumlah">Jumlah: </label>   
-                                <input type="number" name="jumlah" id="jumlah" min="0" max="{{ $alat->stock }}" value="0">
+                        <div class="custom-block">
+                            <div class="custom-block-body">
+                                <h5 class="mb-3">{{ $alat->nama_produk }}</h5>
+
+                                <p class="card-text">{{ $alat->deskripsi }}</p>
+                                <p class="card-text">Stock: {{ $alat->stock }}</p>
+                                <p class="card-text">Provinsi: {{ $alat->provinces->name }}</p>
+                                <p class="card-text">Kota: {{ $alat->regencies->name }}</p>
+                                <form action="/addCart" method="post">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $alat->id }}">
+                                    <div class="row">
+                                        <label class="form-label" for="jumlah">Jumlah: </label>   
+                                        <input type="number" name="jumlah" id="jumlah" min="0" max="{{ $alat->stock }}" value="0">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" {{ $alat->stock === 0 ? 'disabled' : '' }}>{{ $alat->stock === 0 ? 'Stock Produk Habis' : 'Tambah Ke Keranjang' }}</button>
+                                </form>
                             </div>
-                            <button type="submit" class="btn btn-primary" {{ $alat->stock === 0 ? 'disabled' : '' }}>{{ $alat->stock === 0 ? 'Stock Produk Habis' : 'Tambah Ke Keranjang' }}</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
+                @endforeach
             </div>
-        @endforeach
-    </div>
-</div>
+        </div>
+    </section>
 
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
@@ -128,5 +140,13 @@
         })
     })
 </script>
+ 
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
 
 @endsection

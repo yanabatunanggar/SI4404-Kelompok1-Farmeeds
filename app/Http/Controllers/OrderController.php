@@ -37,6 +37,6 @@ class OrderController extends Controller
             }
         }
 
-        return redirect('/order')->with('addSuccess', 'Keranjang berhasil ditambahkan');
+        return redirect('/status')->with('addSuccess', 'Keranjang berhasil ditambahkan');
     }
 }

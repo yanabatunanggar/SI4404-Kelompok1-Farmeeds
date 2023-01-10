@@ -2,7 +2,7 @@
 
 @section('container')
 
-<h1>Ini adalah halaman alat</h1>
+<h3 class="text-center mt-5 mb-5">Kelola alat yang tersedia</h3>
 
 @if (session()->has('deleteSuccess'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -21,8 +21,11 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-3">Filter</div>
+        <div class="col-3 mb-2">
+            <h5>Filter</h5>
+        </div>
         <form action="">
+            <div class="row">
             <div class="col-3">
                 <label class="form-label">Provinsi</label>   
                 <select class="form-select" aria-label="Default select example" name="provinsi" id="provinsi">
@@ -38,14 +41,14 @@
                     
                 </select>
             </div>
-        
-            <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Filter</button>
         </form>
     </div>
 
-    <div class="row mt-5">
+    <div class="row mt-3">
         @foreach ($alats as $alat)
-            <div class="col-3">
+            <div class="col-3 mt-5 mb-4">
                 <div class="card" style="width: 18rem;">
                     <img src="{{ asset('storage/'.$alat->gambar) }}" class="card-img-top" alt="...">
                     <div class="card-body">

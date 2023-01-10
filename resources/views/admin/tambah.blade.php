@@ -2,8 +2,8 @@
 
 @section('container')
 
-<h1>Halaman tambah bibit dan alat</h1>
-
+<div class="container mt-4 mb-5">
+    <h3 class="text-center">Tambahkan Bibit & Alat yang tersedia</h3>
 @if (session()->has('addSuccess'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('addSuccess') }}
@@ -43,23 +43,23 @@
                 </div>
             @enderror
         </div>
-
-        <div class="col-3">
-            <label class="form-label">Provinsi</label>   
-            <select class="form-select" aria-label="Default select example" name="provinsi" id="provinsi">
-                <option>Pilih Provinsi...</option>
-                @foreach ($provinces as $provinsi)
-                    <option value="{{ $provinsi->id }}">{{ $provinsi->name }}</option>
-                @endforeach
-            </select>
+        <div class="row mb-3">
+            <div class="col-6">
+                <label class="form-label">Provinsi</label>   
+                <select class="form-select" aria-label="Default select example" name="provinsi" id="provinsi">
+                    <option>Pilih Provinsi...</option>
+                    @foreach ($provinces as $provinsi)
+                        <option value="{{ $provinsi->id }}">{{ $provinsi->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-6">
+                <label class="form-label">Kota</label>   
+                <select class="form-select" aria-label="Default select example" name="kota" id="kota">
+                    
+                </select>
+            </div>
         </div>
-        <div class="col-3">
-            <label class="form-label">Kota</label>   
-            <select class="form-select" aria-label="Default select example" name="kota" id="kota">
-                
-            </select>
-        </div>
-
         <div class="mb-3">
             <label for="deskripsi" class="form-label">Deskripsi</label>
             <textarea class="form-control @error('stock') is-invalid @enderror" id="deskripsi" rows="3" name="deskripsi"></textarea>
@@ -78,6 +78,7 @@
 
         <button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
     </form>
+</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>

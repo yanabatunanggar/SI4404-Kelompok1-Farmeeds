@@ -2,9 +2,9 @@
 
 @section('container')
 
-<h1>Halaman Detail pesanan Order ID: {{ $order->id }}</h1>
-
-<table class="table">
+<h4 class="text-center mt-4 mb-4">Halaman Detail pesanan Order ID: {{ $order->id }}</h4>
+<div class="container mb-5">
+<table class="table table">
     <thead>
         <tr>
             <th scope="col">Nomor</th>
@@ -16,13 +16,13 @@
         {{-- {{ $order_detail }} --}}
         @foreach ($order_detail as $item)
             <tr>
-                <th scope="row">{{ $loop->iteration }}</th>
-                <th scope="row">{{ $item->products->nama_produk }}</th>
+                <th>{{ $loop->iteration }}</th>
+                <th>{{ $item->products->nama_produk }}</th>
                 <td>{{ $item->jumlah }}</td>
             </tr>
         @endforeach
     </tbody>
     
 </table>
-    
+</div>
 @endsection

@@ -1,8 +1,8 @@
 @extends('layouts.layoutAdmin')
 
 @section('container')
-
-<h1>Halaman status</h1>
+<div class="container mt-5 mb-5">
+<h4 class="text-center mb-4">Kelola status ajuan</h4>
 
 @if (session()->has('updateSuccess'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -50,5 +50,6 @@
     </tbody>
     
 </table>
-    
+</div>
+
 @endsection

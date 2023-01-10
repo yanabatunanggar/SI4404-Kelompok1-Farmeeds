@@ -2,8 +2,9 @@
 
 @section('container')
 
-<h1>Ini halaman cart</h1>
-
+<h4 class="text-center mt-4" >Keranjangmu</h4>
+<div class="container mb-5">
+    
 @if (session()->has('deleteSuccess'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('deleteSuccess') }}
@@ -46,12 +47,10 @@
                 </tr>
             @endforeach
         </tbody>
-        <button type="submit" class="btn btn-primary">Checkout</button>
+        <button type="submit" class="btn btn-primary mb-4">Checkout</button>
     </form>
     
 </table>
-
-
-    
+</div>
 
 @endsection

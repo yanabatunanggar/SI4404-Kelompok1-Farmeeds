@@ -2,7 +2,7 @@
 
 @section('container')
 
-<h1>Ini adalah halaman bibit</h1>
+<h3 class="text-center mt-5 mb-5">Kelola alat yang tersedia</h3>
 
 @if (session()->has('deleteSuccess'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -17,34 +17,38 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
+    
+<div class="container">
 
-<div class="row">
-    <div class="col-3">Filter</div>
-    <form action="">
-        <div class="col-3">
-            <label class="form-label">Provinsi</label>   
-            <select class="form-select" aria-label="Default select example" name="provinsi" id="provinsi">
-                <option>Pilih Provinsi...</option>
-                @foreach ($provinces as $provinsi)
-                    <option value="{{ $provinsi->id }}">{{ $provinsi->name }}</option>
-                @endforeach
-            </select>
-        </div>
-        <div class="col-3">
-            <label class="form-label">Kota</label>   
-            <select class="form-select" aria-label="Default select example" name="kota" id="kota">
-                
-            </select>
-        </div>
-    
-        <button type="submit" class="btn btn-primary">Filter</button>
-    </form>
-</div>
-    
-<div class="container mt-5">
     <div class="row">
-        @foreach ($bibits as $bibit)
+        <div class="col-3 mb-2">
+            <h5>Filter</h5>
+        </div>
+        <form action="">
+            <div class="row">
             <div class="col-3">
+                <label class="form-label">Provinsi</label>   
+                <select class="form-select" aria-label="Default select example" name="provinsi" id="provinsi">
+                    <option>Pilih Provinsi...</option>
+                    @foreach ($provinces as $provinsi)
+                        <option value="{{ $provinsi->id }}">{{ $provinsi->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-3">
+                <label class="form-label">Kota</label>   
+                <select class="form-select" aria-label="Default select example" name="kota" id="kota">
+                    
+                </select>
+            </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Filter</button>
+        </form>
+    </div>
+
+    <div class="row mt-3">
+        @foreach ($bibits as $bibit)
+            <div class="col-3 mt-5 mb-4">
                 <div class="card" style="width: 18rem;">
                     <img src="{{ asset('storage/'.$bibit->gambar) }}" class="card-img-top" alt="...">
                     <div class="card-body">

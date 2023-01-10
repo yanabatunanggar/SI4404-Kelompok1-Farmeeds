@@ -5,7 +5,7 @@
             <img src="{{ url('assets/images/logo.png')}}" class="logo img-fluid" alt="">
             <span>
                 Farmeeds
-                <small>Dipersembahkan oleh Dinas Pertanian</small>
+                <small> Admin Dinas Pertanian</small>
             </span>
         </a>
 
@@ -57,14 +57,14 @@
             <div class="col-lg-8 col-12 d-flex flex-wrap">
                 <p class="d-flex me-4 mb-0">
                     <i class="bi-geo-alt me-2"></i>
-                    Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40257
+                    Dinas Pertanian Kota Bandung
                 </p>
 
                 <p class="d-flex mb-0">
                     <i class="bi-envelope me-2"></i>
 
                     <a href="mailto:info@company.com">
-                        telkomuniversity@gmail.com
+                        pertanianbandung@gmail.com
                     </a>
                 </p>
             </div>
